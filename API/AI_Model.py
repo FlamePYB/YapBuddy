@@ -1,7 +1,7 @@
 import os
 from openai import OpenAI
 
-def generate_response(instructions="you are a helpful assistant that acts as human as possible",user_input="",debug_feedback= [False,""]) -> str | None:
+def generate_response(instructions="you are a helpful assistant that acts as human as possible",user_input="",debug_feedback= [False,""]) -> str:
     client = OpenAI(
         base_url="https://models.github.ai/inference",
         api_key = os.getenv("OPEN_AI_API_KEY")
@@ -27,4 +27,4 @@ def generate_response(instructions="you are a helpful assistant that acts as hum
         top_p=1
     )
 
-    return response.choices[0].message.content
+    return str(response.choices[0].message.content)
