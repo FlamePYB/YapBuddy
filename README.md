@@ -59,4 +59,8 @@ MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
 
+<<<<<<< HEAD
 Created by [FlamePYB](https://github.com/FlamePYB)
+=======
+Created by [FlamePYB](https://github.com/FlamePYB)
+>>>>>>> b1006e8df55d8d9568a51219ef6fdf083293659d
