@@ -23,7 +23,7 @@ No installation is required. Just download and run.
 ## How to Use
 
 1. Download the file linked above.
-2. Double-click `yapper-v1.exe`.
+2. Double-click `Download Yapper v1.0 (.exe) beta`.
 3. Type a message and press enter to get a response.
 
 Example:
@@ -38,7 +38,6 @@ Yapper: Hi. How can I help you today?
 
 - Yapper does not remember previous messages.
 - There are no chat logs.
-- No internet connection is used.
 - Replies are basic and not context-aware.
 
 ---
@@ -59,8 +58,4 @@ MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
 
-<<<<<<< HEAD
 Created by [FlamePYB](https://github.com/FlamePYB)
-=======
-Created by [FlamePYB](https://github.com/FlamePYB)
->>>>>>> b1006e8df55d8d9568a51219ef6fdf083293659d
