@@ -14,7 +14,7 @@ Yapper is a chatbot you run in your terminal. It responds to whatever you type, 
 
 You can download the latest Windows build here:
 
-[Download Yapper v0.1.2 (.exe) beta](https://github.com/FlamePYB/ChatBot/raw/refs/heads/main/Builds/yapper-v0-1-2.exe)
+[Download Yapper v0.1.2 (.exe) beta](https://github.com/FlamePYB/ChatBot/blob/main/Builds/yapper-v0-1-2-beta.exe)
 
 No installation is required. Just download and run.
 
