@@ -6,7 +6,7 @@ Yapper is a basic terminal-based chatbot project. This is an early version, main
 
 ## What is Yapper?
 
-Yapper is a chatbot you run in your terminal. It responds to whatever you type, but doesn’t remember previous messages, store logs, or use any advanced AI. Think of it as a simple starting point for future chatbot features.
+Yapper is a chatbot you run in your terminal. It responds to whatever you type,it cannot store memories for now , it just uses temporary chat logs for the current chat,and it cannot store stuff in memory or use any advanced AI. Think of it as a simple starting point for future chatbot features.
 
 ---
 
@@ -15,6 +15,7 @@ Yapper is a chatbot you run in your terminal. It responds to whatever you type, 
 You can download the latest Windows build here:
 
 [Download Yapper v0.1.2 (.exe) beta](https://github.com/FlamePYB/ChatBot/raw/refs/heads/main/Builds/yapper-v0-1-2-beta.exe)
+[Download Yapper v0.3.2 (.exe) beta](https://github.com/FlamePYB/ChatBot/raw/refs/heads/main/Builds/yapper-v0-3-2-beta.exe)
 
 No installation is required. Just download and run.
 
@@ -29,33 +30,23 @@ No installation is required. Just download and run.
 Example:
 ```
 You: Hello
-Yapper: Hi. How can I help you today?
+AI: Hi. How can I help you today?
 ```
 
 ---
 
 ## Limitations
 
-- Yapper does not remember previous messages.
-- There are no chat logs.
+- Yapper does not remember previous chats.
+- There are no permanant memory chat logs.
 - Replies are basic and not context-aware.
 
 ---
 
 ## Future Plans
 
-- Add memory and context to conversations
-- Add logging of chats
+- Add memory conversations
 - Improve responses
-
+- Make a GUI
+- Make the bot able to do simple actions
 Feedback is welcome. If you have ideas or want to contribute, feel free to open an issue.
-
----
-
-## License
-
-MIT License. See the [LICENSE](LICENSE) file for details.
-
----
-
-Created by [FlamePYB](https://github.com/FlamePYB)
