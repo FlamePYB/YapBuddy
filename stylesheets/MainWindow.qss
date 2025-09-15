@@ -1,3 +1,6 @@
 MessageArea {
     background: transparent
 }
+verticalSpacer {
+    background: red
+}
