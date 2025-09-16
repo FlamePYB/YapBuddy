@@ -3,17 +3,33 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: 'Release tag (e.g. v1.0.0)'
+        description: 'Release tag (e.g. v0.3.2)'
         required: true
       file_path:
-        description: 'Path to file in repo'
+        description: 'Path to file in repo (e.g. Builds/myapp.exe)'
         required: true
 
 jobs:
   upload:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write   # Needed to create releases
     steps:
       - uses: actions/checkout@v3
+
+      - name: Install GitHub CLI
+        run: sudo apt-get install -y gh
+
+      - name: Create release if missing
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if ! gh release view "${{ github.event.inputs.tag }}" >/dev/null 2>&1; then
+            echo "Release not found — creating it..."
+            gh release create "${{ github.event.inputs.tag }}" --title "${{ github.event.inputs.tag }}" --notes "Auto-created by workflow"
+          else
+            echo "Release already exists."
+          fi
 
       - name: Upload file to release
         uses: svenstaro/upload-release-action@v2
