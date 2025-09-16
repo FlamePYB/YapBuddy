@@ -1,54 +1,63 @@
 # Yapper – Simple Terminal Chatbot
 
-Yapper is a basic terminal-based chatbot project. This is an early version, mainly built for learning and experimenting with chatbot logic in Python.
+Yapper is a basic terminal-based chatbot project for Windows. This early version is built for learning and experimenting with chatbot logic in Python.
 
 ---
 
-## What is Yapper?
+## Features
 
-Yapper is a chatbot you run in your terminal. It responds to whatever you type. During each chat session, Yapper keeps a **temporary log** of all messages from both you and itself to manage the conversation. However, once you close the chat, the bot forgets everything—no chat history is saved between sessions.
+- **Terminal-based chat**: Run Yapper in your terminal and chat with the bot.
+- **Session memory**: Remembers messages only during your current session.
+- **No persistent history**: All chat history is wiped when you close the app.
+- **Message sender markers**: Distinguishes between user and bot messages.
+- **Basic responses**: Handles simple interactions.
 
 ---
 
 ## Download
 
-You can download the latest Windows build here:
+Latest Windows builds:
 
-[Download Yapper v0.1.2 (.exe) beta](https://github.com/FlamePYB/ChatBot/raw/refs/heads/main/Builds/yapper-v0-1-2-beta.exe)  
-[Download Yapper v0.3.2 (.exe) beta](https://github.com/FlamePYB/ChatBot/raw/refs/heads/main/Builds/yapper-v0-3-2-beta.exe)
+- [Yapper v0.1.2 (.exe) beta](https://github.com/FlamePYB/ChatBot/raw/refs/heads/main/Builds/yapper-v0-1-2-beta.exe)
+- [Yapper v0.3.2 (.exe) beta](https://github.com/FlamePYB/ChatBot/raw/refs/heads/main/Builds/yapper-v0-3-2-beta.exe)
 
-No installation is required. Just download and run.
+_No installation required. Just download and run._
 
 ---
 
 ## How to Use
 
-1. Download the file linked above.
-2. Double-click to run the downloaded `.exe` file.
-3. Type a message and press enter to get a response.
+1. Download a build from above.
+2. Double-click the `.exe` file.
+3. Type your message and press Enter.
 
-Example:
-```
-You: Hello
-AI: Hi. How can I help you today?
-```
+    ```text
+    You: Hello
+    AI: Hi. How can I help you today?
+    ```
 
 ---
 
 ## Limitations
 
-- Yapper only remembers conversation context during your current session (using a temporary log variable).
-- Once the chat is closed, all memory is wiped; no conversations are saved.
-- Replies are basic and may not handle complex interactions.
-- No GUI yet.
+- Only remembers conversation context during your session.
+- No chat history is saved between sessions.
+- Replies are basic; complex interactions may not be handled.
+- No GUI (graphical interface) yet.
 
 ---
 
 ## Future Plans
 
-- Add persistent memory for conversations
-- Improve response quality and context handling
-- Make a GUI
-- Enable the bot to do simple actions
+- Add persistent memory for conversations.
+- Improve response quality and context handling.
+- Create a GUI.
+- Enable the bot to perform simple actions.
 
-Feedback is welcome. If you have ideas or want to contribute, feel free to open an issue.
+---
+
+## Feedback & Contributing
+
+Feedback is welcome! If you have ideas or want to contribute, please open an issue or pull request.
+
+---
