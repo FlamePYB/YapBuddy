@@ -7,8 +7,9 @@
 - First build
 - made message sender markers
 ---
-## [0.1.2] - 2025-07-21
+## [0.3.2] - 2025-07-21
 ### Added
 -Added short memory for the current chat
 ---
+##
 
