@@ -29,7 +29,7 @@ class ChatBot:
         if not self.success:
             self.current_message = Message("assistant",self.client)
         else:
-            self.current_response = self.client.chat.completions.create( #type:ignore
+            self.current_response = self.client.chat.completions.create(
             messages=self.messages,
             model="openai/gpt-4o",
             temperature=0.8,
