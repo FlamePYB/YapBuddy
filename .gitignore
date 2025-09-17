@@ -1,5 +1,6 @@
-*/__pycache__
-*/*.pyc
+*/__pycache__/*
+*.pyc
+*.cpython-313.pyc
 Builds/YapBuddy v1.0.0 beta.exe
 build/main/main.pkg
 dist/
