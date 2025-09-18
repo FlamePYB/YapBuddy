@@ -38,7 +38,7 @@ _No installation required. Just download and run._
 - Only remembers conversation context during your session.
 - No chat history is saved between sessions.
 - Replies are basic; complex interactions may not be handled.
-- No animation (graphical interface) yet.
+- No animation yet.
 - Occasional lag
 
 ---
@@ -56,3 +56,10 @@ _No installation required. Just download and run._
 Feedback is welcome! If you have ideas or want to contribute, please open an issue or pull request.
 
 ---
+
+| Version | Tag       | Date       | Download |
+|---------|-----------|------------|----------|
+| Beta v1.0.0  | `v1.0.0`  | 2025-09-10 | [⬇ YapBuddy.exe](https://github.com/FlamePYB/YapBuddy/releases/download/v1.0.0-beta/YapBuddy-v1.0.0-beta.exe) |
+| Alpha v0.1.2  | `v0.3.2`  | 2025-08-15 | [⬇ YapBuddy.exe](https://github.com/FlamePYB/YapBuddy/releases/download/v0.3.2-alpha/yapper-v-0-3-2-beta.exe) |
+| Alpha v0.1.2  | `v0.1.2`  | 2025-08-01 | [⬇ YapBuddy.exe](https://github.com/FlamePYB/YapBuddy/releases/download/v0.1.2-alpha/yapper-v0-1-2-alpha.exe) |
+| **Source Code** | `main` | latest release | [ZIP](https://github.com/FlamePYB/YapBuddy/archive/refs/heads/main.zip) · [TAR.GZ](https://github.com/FlamePYB/YapBuddy/archive/refs/heads/main.tar.gz) |
