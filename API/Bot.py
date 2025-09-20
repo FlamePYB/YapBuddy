@@ -9,12 +9,16 @@ from openai import APIError
 
 class ChatBot:
     def __init__(self,chat:Chat):
-        self.success : bool = True
+        self.success: bool = True
+        self.client = None
+        self.client_error_message = None
         try:
             self.client = ai_client
-        except APIError as e:
+        except Exception as e:
+            # catch broad exceptions here so we don't silently fail later
             self.success = False
-            self.client = f"Try again, an error occured with code {e.code}"
+            self.client = None
+            self.client_error_message = f"Try again, an error occurred while creating AI client: {e}"
         finally:
             self.chat = chat
             self.chat.set_target(self)
@@ -25,17 +29,44 @@ class ChatBot:
                 "content": get_file_content_of(":/text/API/res/instructions.txt")},
             *self.chat.messages
         ]
-    def respond(self,user_message):
+    def respond(self, user_message):
+        # If client wasn't initialized, return the captured error message
         if not self.success:
-            self.current_message = Message("assistant",self.client)
-        else:
+            err_text = self.client_error_message or "AI client unavailable."
+            self.current_message = Message("assistant", err_text)
+            self.chat.add_message(self.current_message)
+            return
+
+        # Accumulate streamed pieces into full_text
+        full_text = ""
+        try:
             self.current_response = self.client.chat.completions.create(
-            messages=self.messages,
-            model="openai/gpt-4o",
-            temperature=0.8,
-            max_tokens=100,
-            top_p=1
+                messages=self.messages,
+                stream=True,
+                model="qwen-3-235b-a22b-instruct-2507",
+                temperature=0.8,
+                max_tokens=100,
+                top_p=1
             )
-            self.current_message = Message("assistant",
-                            self.current_response.choices[0].message.content)
+            for chunk in self.current_response:
+                # Safely extract delta content whether it's a dict or object
+                try:
+                    delta = chunk.choices[0].delta
+                except Exception:
+                    continue
+                content = None
+                if isinstance(delta, dict):
+                    content = delta.get("content")
+                else:
+                    content = getattr(delta, "content", None)
+                if content:
+                    full_text += content
+
+            if not full_text:
+                full_text = "No response received from model."
+            self.current_message = Message("assistant", full_text)
+        except Exception as e:
+            # Any error during streaming should produce an assistant message
+            self.current_message = Message("assistant", f"Error while generating response: {e}")
+
         self.chat.add_message(self.current_message)
