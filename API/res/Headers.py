@@ -1,6 +1,4 @@
 from openai import OpenAI
 import os
-ai_client = OpenAI(
-        base_url="https://models.github.ai/inference",
-        api_key = "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"
-    )
+from cerebras.cloud.sdk import Cerebras
+ai_client = Cerebras(api_key="csk-vkv299rfjj4t2dk89h599p4nwjnej8xt9pd4fwcpw4d84tr3")
