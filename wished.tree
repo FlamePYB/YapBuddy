@@ -1,0 +1,56 @@
+YapBuddy
+└── YapBuddy
+    ├── src
+    │   └── yapbuddy
+    │       ├── __init__.py
+    │       ├── api
+    │       │   ├── __init__.py
+    │       │   ├── bot.py
+    │       │   └── config.py
+    │       ├── core
+    │       │   ├── __init__.py
+    │       │   ├── chat.py
+    │       │   ├── messages.py
+    │       │   └── deprecated_input_helpers.py
+    │       ├── ui
+    │       │   ├── __init__.py
+    │       │   ├── compiled
+    │       │   │   ├── main_window.py
+    │       │   │   └── message_view.py
+    │       │   ├── editable
+    │       │   │   ├── main_window.ui
+    │       │   │   └── message.ui
+    │       │   ├── custom_widgets.py
+    │       │   └── widget_factory.py
+    │       ├── utils
+    │       │   ├── __init__.py
+    │       │   └── file_loader.py
+    │       └── main.py
+    ├── assets
+    │   ├── prompts
+    │   │   └── system_instructions.txt
+    │   └── styles
+    │       ├── ai_message.qss
+    │       ├── main_window.qss
+    │       └── user_message.qss
+    ├── res
+    │   ├── images
+    │   │   ├── favicon.ico
+    │   │   └── favicon.png
+    │   ├── resources.qrc
+    │   └── resources_rc.py
+    ├── docs
+    │   ├── README.md
+    │   ├── VERSION_LOG.md
+    │   └── file_tree.txt
+    ├── tests
+    │   ├── __init__.py
+    │   ├── test_core.py
+    │   └── test_api.py
+    ├── sandbox
+    │   └── quick_main.py
+    ├── README.md
+    ├── LICENSE
+    ├── pyproject.toml
+    ├── setup.cfg
+    └── requirements.txt

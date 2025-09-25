@@ -3,8 +3,9 @@ from Utils.file_handling import get_file_content_of
 import res_rc
 import os
 from PySide6.QtCore import QFile, QTextStream, QIODevice
+from PySide6.QtWidgets import QWidget
 
-def MakeCustomWidget(Loader, Target, StyleSheet, *args):
+def MakeCustomWidget(Loader, Target:QWidget, StyleSheet, *args):
     Loader.setupUi(Target, *args)
     try:
         # Try loading from Qt resource
