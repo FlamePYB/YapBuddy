@@ -40,6 +40,9 @@ class ChatBot:
         # Accumulate streamed pieces into full_text
         full_text = ""
         try:
+            if not self.client or not hasattr(self.client, "chat"):
+                raise RuntimeError("AI client unavailable or invalid")
+
             self.current_response = self.client.chat.completions.create(
                 messages=self.messages,
                 stream=True,
@@ -48,22 +51,34 @@ class ChatBot:
                 max_tokens=100,
                 top_p=1
             )
+
             for chunk in self.current_response:
-                # Safely extract delta content whether it's a dict or object
+                # chunk can be varied shapes depending on client; be defensive
                 try:
-                    delta = chunk.choices[0].delta
+                    # try common object-like access
+                    choices = getattr(chunk, "choices", None)
+                    if choices is None:
+                        # maybe chunk is a dict
+                        choices = chunk.get("choices") if isinstance(chunk, dict) else None
+                    if not choices:
+                        continue
+
+                    delta = choices[0].get("delta") if isinstance(choices[0], dict) else getattr(choices[0], "delta", None)
                 except Exception:
                     continue
+
                 content = None
                 if isinstance(delta, dict):
                     content = delta.get("content")
                 else:
                     content = getattr(delta, "content", None)
+
                 if content:
                     full_text += content
 
             if not full_text:
                 full_text = "No response received from model."
+
             self.current_message = Message("assistant", full_text)
         except Exception as e:
             # Any error during streaming should produce an assistant message

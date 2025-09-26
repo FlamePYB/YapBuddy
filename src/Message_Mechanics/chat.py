@@ -1,4 +1,4 @@
-from Message_Mechanics.messages import Message
+from src.Message_Mechanics.messages import Message
 from PySide6.QtWidgets import QScrollArea,QLayout
 
 class Chat:
