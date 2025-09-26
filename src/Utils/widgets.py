@@ -1,6 +1,6 @@
 
-from Utils.file_handling import get_file_content_of
-import res_rc
+from src.Utils.file_handling import get_file_content_of
+from res import res_rc
 import os
 from PySide6.QtCore import QFile, QTextStream, QIODevice
 from PySide6.QtWidgets import QWidget

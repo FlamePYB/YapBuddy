@@ -1,11 +1,11 @@
-from UI.Compiled.MainWindow import Ui_MainWindow
+from src.UI.Compiled.MainWindow import Ui_MainWindow
 from PySide6.QtWidgets import QApplication,QMainWindow,QWidget,QVBoxLayout,QLineEdit
 from sys import argv as exec_args
-from Utils.widgets import MakeCustomWidget
-from Message_Mechanics.chat import Chat
-from Message_Mechanics.messages import Message
-from API.Bot import ChatBot
-from Message_Mechanics.functions import get_sent_message
+from src.Utils.widgets import MakeCustomWidget
+from src.Message_Mechanics.chat import Chat
+from src.Message_Mechanics.messages import Message
+from src.API.Bot import ChatBot
+from src.Message_Mechanics.functions import get_sent_message
 from functools import partial
 from res import res_rc
 
@@ -22,7 +22,7 @@ def main(argv=None):
     app = QApplication(_argv)
 
     window = QMainWindow()
-    MakeCustomWidget(Ui_MainWindow(), window, ":/stylesheets/stylesheets/MainWindow.qss")
+    MakeCustomWidget(Ui_MainWindow(), window, ":/style/files/MainWindow.qss")
     window.show()
     MessageArea = window.findChild(QWidget, "MessageArea")
     message_input_widget: QLineEdit = window.findChild(QLineEdit, "MessageInput")  # type:ignore

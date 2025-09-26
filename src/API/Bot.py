@@ -1,11 +1,8 @@
 import os
-from openai import OpenAI
-from Utils.file_handling import get_file_content_of
-from API.res.Headers import ai_client
-from Message_Mechanics.messages import Message
-from Message_Mechanics.chat import Chat
-from openai import OpenAIError
-from openai import APIError
+from src.Utils.file_handling import get_file_content_of
+from src.API.res.Headers import ai_client
+from src.Message_Mechanics.messages import Message
+from src.Message_Mechanics.chat import Chat
 
 class ChatBot:
     def __init__(self,chat:Chat):
@@ -26,7 +23,7 @@ class ChatBot:
     def messages(self):
         return [
             {"role": "system",
-                "content": get_file_content_of(":/text/API/res/instructions.txt")},
+                "content": get_file_content_of("assets\\instructions.txt")},
             *self.chat.messages
         ]
     def respond(self, user_message):

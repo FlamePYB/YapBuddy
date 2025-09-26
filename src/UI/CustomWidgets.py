@@ -1,5 +1,5 @@
-from UI.Compiled.Message import Ui_Rectangle
-from Utils.widgets import MakeCustomWidget
+from src.UI.Compiled.Message import Ui_Rectangle
+from src.Utils.widgets import MakeCustomWidget
 from PySide6.QtWidgets import QWidget
 
 class AbstractMessage(QWidget):
@@ -12,8 +12,8 @@ class AbstractMessage(QWidget):
 
 class UserMessage(AbstractMessage):
     def __init__(self,Text,*args, **kwargs):
-        super().__init__(":/stylesheets/stylesheets/UserMessage.qss",Text,*args,**kwargs)
+        super().__init__(":/style/files/UserMessage.qss",Text,*args,**kwargs)
 
 class Ai_Message(AbstractMessage):
     def __init__(self,Text,*args, **kwargs):
-        super().__init__(":/stylesheets/stylesheets/AI_Message.qss",Text,*args, **kwargs)
+        super().__init__(":/style/files/AI_Message.qss",Text,*args, **kwargs)

@@ -1,4 +1,4 @@
-from UI.CustomWidgets import UserMessage , Ai_Message
+from src.UI.CustomWidgets import UserMessage , Ai_Message
 class Message:
     def __init__(self,role,content):
         self.role = role

@@ -1,4 +1,4 @@
-from Message_Mechanics.messages import Message
+from src.Message_Mechanics.messages import Message
 from PySide6.QtWidgets import QLineEdit
 def get_sent_message(input_field:QLineEdit):
         # Get the text
