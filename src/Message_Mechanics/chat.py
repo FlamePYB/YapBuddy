@@ -1,6 +1,6 @@
 from src.Message_Mechanics.messages import Message
 from PySide6.QtWidgets import QScrollArea,QLayout
-from PySide6.QtCore import Qt
+from PySide6.QtCore import Qt, QTimer
 
 class Chat:
     def __init__(self,widget:QScrollArea):
@@ -11,9 +11,26 @@ class Chat:
     def set_target(self,target):
         self.target = target
     def add_message(self,message:Message):
-        # add the widget then set its alignment to top so it doesn't expand vertically
+        # create the widget and size it immediately using the scroll area's viewport width
         widget = message.get_widget()
+        try:
+            # get available width from the scroll area viewport if possible
+            avail = None
+            try:
+                avail = int(self.chat_widget.viewport().width())
+            except Exception:
+                avail = None
+            if hasattr(widget, 'prepare_for_display'):
+                try:
+                    widget.prepare_for_display(avail)
+                except Exception:
+                    pass
+        except Exception:
+            pass
+        # now add to layout so it's shown with the computed size
         self.Layout.addWidget(widget)
+        # if the widget exposes an update_content_size helper it can be called by the
+        # widget itself (on show/resize); avoid scheduling here to prevent layout thrash.
         try:
             # Align left for AI, right for user so bubble widths and wrapping look correct
             role = getattr(widget, 'Role', None) or widget.property('Role')

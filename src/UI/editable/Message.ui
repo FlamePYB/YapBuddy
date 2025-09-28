@@ -22,12 +22,7 @@
         <height>0</height>
      </size>
     </property>
-  <property name="maximumSize">
-   <size>
-    <width>504</width>
-    <height>16777215</height>
-   </size>
-  </property>
+  <!-- no fixed maximumSize so the message can grow/shrink per layout -->
   <property name="windowTitle">
    <string>Form</string>
   </property>

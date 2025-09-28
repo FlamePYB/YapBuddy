@@ -15,7 +15,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QFrame, QTextBrowser, QSizePolicy,
+from PySide6.QtWidgets import (QApplication, QFrame, QLabel, QSizePolicy,
     QVBoxLayout, QWidget)
 
 class Ui_Rectangle(object):
@@ -29,15 +29,17 @@ class Ui_Rectangle(object):
         sizePolicy.setHeightForWidth(Rectangle.sizePolicy().hasHeightForWidth())
         Rectangle.setSizePolicy(sizePolicy)
         Rectangle.setMinimumSize(QSize(0, 0))
-        Rectangle.setMaximumSize(QSize(504, 16777215))
+        # allow Rectangle to grow horizontally per layout (no fixed maximum width)
+        Rectangle.setMaximumSize(QSize(16777215, 16777215))
         Rectangle.setAutoFillBackground(False)
         self.verticalLayout = QVBoxLayout(Rectangle)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(4, 4, 9, 4)
-        self.MessageContent = QTextBrowser(Rectangle)
+        self.MessageContent = QLabel(Rectangle)
         self.MessageContent.setObjectName(u"MessageContent")
-        self.MessageContent.setReadOnly(True)
-        sizePolicy = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Preferred)
+        # make the QLabel wrap text
+        self.MessageContent.setWordWrap(True)
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         self.MessageContent.setSizePolicy(sizePolicy)
@@ -46,18 +48,9 @@ class Ui_Rectangle(object):
         font.setFamily("Segoe UI")
         self.MessageContent.setFont(font)
         self.MessageContent.setLayoutDirection(Qt.LeftToRight)
-        # make the QTextBrowser visually transparent and frameless so the parent bubble shows through
-        from PySide6.QtWidgets import QFrame
-        self.MessageContent.setFrameShape(QFrame.NoFrame)
+        # make the QLabel visually transparent so the parent bubble shows through
         self.MessageContent.setStyleSheet("background: transparent; border: none;")
         self.MessageContent.setContentsMargins(0, 0, 0, 0)
-        try:
-            self.MessageContent.setViewportMargins(0, 0, 0, 0)
-        except Exception:
-            pass
-        # disable internal scrollbars so the main QScrollArea controls scrolling
-        self.MessageContent.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
-        self.MessageContent.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.MessageContent.setAlignment(Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignTop|Qt.AlignmentFlag.AlignLeading)
 
         self.verticalLayout.addWidget(self.MessageContent, 0, Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignTop)
@@ -71,7 +64,7 @@ class Ui_Rectangle(object):
     def retranslateUi(self, Rectangle):
         Rectangle.setWindowTitle(QCoreApplication.translate("Rectangle", u"Form", None))
         Rectangle.setProperty(u"Role", "")
-        # use setPlainText for QTextBrowser
-        self.MessageContent.setPlainText(QCoreApplication.translate("Rectangle", u"text", None))
+        # set label text
+        self.MessageContent.setText(QCoreApplication.translate("Rectangle", u"text", None))
     # retranslateUi
 
