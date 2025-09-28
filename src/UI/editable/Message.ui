@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="sizePolicy">
-   <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+   <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
@@ -50,19 +50,37 @@
    <property name="bottomMargin">
     <number>4</number>
    </property>
-   <item alignment="Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter">
-    <widget class="QLabel" name="MessageContent">
-     <property name="text">
-      <string>text</string>
-     </property>
-      <property name="wordWrap">
-       <bool>true</bool>
-      </property>
-     <property name="alignment">
-      <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTop|Qt::AlignmentFlag::AlignTrailing</set>
-     </property>
-    </widget>
-   </item>
+  <item alignment="Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop">
+  <widget class="QTextBrowser" name="MessageContent">
+    <property name="plainText">
+     <string>text</string>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   <property name="styleSheet">
+    <string notr="true">background: transparent; border: none;</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::NoFrame</enum>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <family>Segoe UI</family>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+   </widget>
+  </item>
   </layout>
  </widget>
  <resources/>

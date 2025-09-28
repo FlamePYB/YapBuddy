@@ -15,7 +15,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QFrame, QLabel, QSizePolicy,
+from PySide6.QtWidgets import (QApplication, QFrame, QTextBrowser, QSizePolicy,
     QVBoxLayout, QWidget)
 
 class Ui_Rectangle(object):
@@ -23,7 +23,7 @@ class Ui_Rectangle(object):
         if not Rectangle.objectName():
             Rectangle.setObjectName(u"Rectangle")
         Rectangle.resize(504, 46)
-        sizePolicy = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(Rectangle.sizePolicy().hasHeightForWidth())
@@ -34,12 +34,33 @@ class Ui_Rectangle(object):
         self.verticalLayout = QVBoxLayout(Rectangle)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(4, 4, 9, 4)
-        self.MessageContent = QLabel(Rectangle)
+        self.MessageContent = QTextBrowser(Rectangle)
         self.MessageContent.setObjectName(u"MessageContent")
-        self.MessageContent.setWordWrap(True)
-        self.MessageContent.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTop|Qt.AlignmentFlag.AlignTrailing)
+        self.MessageContent.setReadOnly(True)
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        self.MessageContent.setSizePolicy(sizePolicy)
+        font = QFont()
+        font.setPointSize(12)
+        font.setFamily("Segoe UI")
+        self.MessageContent.setFont(font)
+        self.MessageContent.setLayoutDirection(Qt.LeftToRight)
+        # make the QTextBrowser visually transparent and frameless so the parent bubble shows through
+        from PySide6.QtWidgets import QFrame
+        self.MessageContent.setFrameShape(QFrame.NoFrame)
+        self.MessageContent.setStyleSheet("background: transparent; border: none;")
+        self.MessageContent.setContentsMargins(0, 0, 0, 0)
+        try:
+            self.MessageContent.setViewportMargins(0, 0, 0, 0)
+        except Exception:
+            pass
+        # disable internal scrollbars so the main QScrollArea controls scrolling
+        self.MessageContent.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.MessageContent.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.MessageContent.setAlignment(Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignTop|Qt.AlignmentFlag.AlignLeading)
 
-        self.verticalLayout.addWidget(self.MessageContent, 0, Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignVCenter)
+        self.verticalLayout.addWidget(self.MessageContent, 0, Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignTop)
 
 
         self.retranslateUi(Rectangle)
@@ -50,6 +71,7 @@ class Ui_Rectangle(object):
     def retranslateUi(self, Rectangle):
         Rectangle.setWindowTitle(QCoreApplication.translate("Rectangle", u"Form", None))
         Rectangle.setProperty(u"Role", "")
-        self.MessageContent.setText(QCoreApplication.translate("Rectangle", u"text", None))
+        # use setPlainText for QTextBrowser
+        self.MessageContent.setPlainText(QCoreApplication.translate("Rectangle", u"text", None))
     # retranslateUi
 

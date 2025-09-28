@@ -20,3 +20,18 @@ verticalSpacer {
     /* Background color */
     background-color: rgb(141, 202, 215); /* dark background for neon pop */
 }
+/* AI/Model bubble styling */
+*[Role="Model"] {
+    margin: 6px 0px 6px 0px;
+    padding: 8px 16px;
+    border-radius: 10px;
+    max-width: 560px;
+    min-width: 120px;
+    background-color: rgb(230, 230, 230);
+}
+
+/* Ensure QTextBrowser inside bubbles is transparent */
+*[Role="User"] QTextBrowser, *[Role="Model"] QTextBrowser {
+    background: transparent;
+    border: none;
+}

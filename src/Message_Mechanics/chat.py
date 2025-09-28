@@ -15,10 +15,13 @@ class Chat:
         widget = message.get_widget()
         self.Layout.addWidget(widget)
         try:
-            # QLayout.setAlignment exists on QBoxLayout; this will align the widget within the layout
-            self.Layout.setAlignment(widget, Qt.AlignmentFlag.AlignTop)
+            # Align left for AI, right for user so bubble widths and wrapping look correct
+            role = getattr(widget, 'Role', None) or widget.property('Role')
+            if role == 'User':
+                self.Layout.setAlignment(widget, Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignTop)
+            else:
+                self.Layout.setAlignment(widget, Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignTop)
         except Exception:
-            # fallback: ignore if layout doesn't support setAlignment for widgets
             pass
         self.messages.append(message.get_dict())
         if message.get_dict()["role"] == "user":
