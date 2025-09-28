@@ -1,8 +1,6 @@
 <RCC>
   <qresource prefix="style">
-    <file>files/AI_Message.qss</file>
     <file>files/MainWindow.qss</file>
-    <file>files/UserMessage.qss</file>
   </qresource>
   <qresource prefix="image">
     <file>files/favicon.ico</file>

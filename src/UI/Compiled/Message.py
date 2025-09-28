@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'Message.ui'
+## Form generated from reading UI file 'message.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.9.1
 ##
@@ -23,12 +23,12 @@ class Ui_Rectangle(object):
         if not Rectangle.objectName():
             Rectangle.setObjectName(u"Rectangle")
         Rectangle.resize(504, 46)
-        sizePolicy = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(Rectangle.sizePolicy().hasHeightForWidth())
         Rectangle.setSizePolicy(sizePolicy)
-        Rectangle.setMinimumSize(QSize(0, 46))
+        Rectangle.setMinimumSize(QSize(0, 0))
         Rectangle.setMaximumSize(QSize(504, 16777215))
         Rectangle.setAutoFillBackground(False)
         self.verticalLayout = QVBoxLayout(Rectangle)
@@ -36,6 +36,7 @@ class Ui_Rectangle(object):
         self.verticalLayout.setContentsMargins(4, 4, 9, 4)
         self.MessageContent = QLabel(Rectangle)
         self.MessageContent.setObjectName(u"MessageContent")
+        self.MessageContent.setWordWrap(True)
         self.MessageContent.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTop|Qt.AlignmentFlag.AlignTrailing)
 
         self.verticalLayout.addWidget(self.MessageContent, 0, Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignVCenter)
@@ -48,6 +49,7 @@ class Ui_Rectangle(object):
 
     def retranslateUi(self, Rectangle):
         Rectangle.setWindowTitle(QCoreApplication.translate("Rectangle", u"Form", None))
+        Rectangle.setProperty(u"Role", "")
         self.MessageContent.setText(QCoreApplication.translate("Rectangle", u"text", None))
     # retranslateUi
 

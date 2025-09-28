@@ -35,12 +35,7 @@
     </property>
     <item>
      <widget class="QScrollArea" name="MessageArea">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>465</height>
-       </size>
-      </property>
+     <!-- Removed minimumSize to prevent forced vertical expansion -->
       <property name="styleSheet">
        <string notr="true"/>
       </property>
@@ -51,14 +46,12 @@
        <property name="enabled">
         <bool>true</bool>
        </property>
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>0</y>
-         <width>780</width>
-         <height>463</height>
-        </rect>
-       </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <property name="spacing">
          <number>0</number>

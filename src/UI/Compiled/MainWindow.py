@@ -17,7 +17,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QLineEdit, QMainWindow, QScrollArea,
     QSizePolicy, QVBoxLayout, QWidget)
-import res.res_rc
+from res import res_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -41,13 +41,16 @@ class Ui_MainWindow(object):
         self.verticalLayout.setContentsMargins(-1, -1, -1, 50)
         self.MessageArea = QScrollArea(self.center)
         self.MessageArea.setObjectName(u"MessageArea")
-        self.MessageArea.setMinimumSize(QSize(0, 465))
         self.MessageArea.setStyleSheet(u"")
         self.MessageArea.setWidgetResizable(True)
         self.Messages = QWidget()
         self.Messages.setObjectName(u"Messages")
         self.Messages.setEnabled(True)
-        self.Messages.setGeometry(QRect(0, 0, 780, 463))
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.Messages.sizePolicy().hasHeightForWidth())
+        self.Messages.setSizePolicy(sizePolicy)
         self.verticalLayout_2 = QVBoxLayout(self.Messages)
         self.verticalLayout_2.setSpacing(0)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")

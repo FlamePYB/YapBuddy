@@ -6,15 +6,17 @@ verticalSpacer {
 }
 *[Role="User"] {
     /* Margin around the widget (space outside the border) */
-    margin: 12px; /* tweak this for more/less space */
+    margin: 6px 0px 6px 0px; /* less vertical space, no horizontal */
     /* Padding inside the widget (space between border and content) */
-    padding: 8px;
+    padding: 8px 16px; /* more padding for a tighter look */
 
     /* Rounded corners */
     border-radius: 10px; /* bigger value = more curve */
 
-    /* Border styling */ /* neon cyan border */
+    /* Max width for compact look */
+    max-width: 480px;
+    min-width: 120px;
 
     /* Background color */
-    background-color: green; /* dark background for neon pop */
+    background-color: rgb(141, 202, 215); /* dark background for neon pop */
 }
