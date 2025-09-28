@@ -14,7 +14,6 @@ def get_resource(resource_path:str ) -> str:
 def get_file_content_of(path: str, base_dir: str | Path | None = None) -> str:
     if path.startswith(":"):
         return get_resource(path)
-    # allow caller to override base dir; default to cwd (where run.py is run from)
     if base_dir is None:
         if getattr(sys, 'frozen', False):
             base = Path(sys._MEIPASS)  # type: ignore

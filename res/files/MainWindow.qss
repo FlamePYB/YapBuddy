@@ -4,3 +4,17 @@ MessageArea {
 verticalSpacer {
     background: red
 }
+*[Role="User"] {
+    /* Margin around the widget (space outside the border) */
+    margin: 12px; /* tweak this for more/less space */
+    /* Padding inside the widget (space between border and content) */
+    padding: 8px;
+
+    /* Rounded corners */
+    border-radius: 10px; /* bigger value = more curve */
+
+    /* Border styling */ /* neon cyan border */
+
+    /* Background color */
+    background-color: green; /* dark background for neon pop */
+}

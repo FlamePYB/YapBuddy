@@ -22,8 +22,8 @@
    <string>MainWindow</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../../res_rc.qrc">
-    <normaloff>:/image/res/images/favicon.png</normaloff>:/image/res/images/favicon.png</iconset>
+   <iconset resource="../../../res/res.qrc">
+    <normaloff>:/image/files/favicon.ico</normaloff>:/image/files/favicon.ico</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true"/>
@@ -109,7 +109,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
   </widget>
  </widget>
  <resources>
-  <include location="../../res_rc.qrc"/>
+  <include location="../../../res/res.qrc"/>
  </resources>
  <connections/>
 </ui>

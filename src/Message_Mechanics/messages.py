@@ -1,9 +1,9 @@
 from src.UI.CustomWidgets import UserMessage , Ai_Message
 class Message:
-    def __init__(self,role,content):
+    def __init__(self,role,content) -> None:
         self.role = role
         self.content = content
-        match self.role:
+        match self.role: 
             case "assistant":
                 self.widget = Ai_Message
             case "user":

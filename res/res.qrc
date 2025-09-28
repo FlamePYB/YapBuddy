@@ -5,6 +5,7 @@
     <file>files/UserMessage.qss</file>
   </qresource>
   <qresource prefix="image">
+    <file>files/favicon.ico</file>
     <file>files/favicon.png</file>
   </qresource>
 </RCC>
