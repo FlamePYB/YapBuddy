@@ -3,7 +3,7 @@ from res import res_rc
 import os
 from PySide6.QtCore import QFile, QTextStream, QIODevice
 from PySide6.QtWidgets import QWidget
-from src.Utils.file_handling import get_file_content_of
+from Classes.Files.file_handling import get_file_content_of
 
 def MakeCustomWidget(Loader, Target:QWidget, StyleSheet=None, *args):
     Loader.setupUi(Target, *args)

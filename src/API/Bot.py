@@ -1,5 +1,5 @@
 import os
-from src.Utils.file_handling import get_file_content_of
+from Classes.Files.file_handling import get_file_content_of
 from src.API.res.Headers import ai_client
 from src.Message_Mechanics.messages import Message
 from src.Message_Mechanics.chat import Chat

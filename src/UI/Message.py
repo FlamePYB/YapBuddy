@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'message.ui'
+## Form generated from reading UI file 'Message.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.9.1
 ##
@@ -9,7 +9,7 @@
 ################################################################################
 
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-    QMetaObject, QObject, QPoint, QRect,
+    QMetaObject, QObject, QPoint, QRect,QMargins,
     QSize, QTime, QUrl, Qt)
 from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
@@ -29,31 +29,28 @@ class Ui_Rectangle(object):
         sizePolicy.setHeightForWidth(Rectangle.sizePolicy().hasHeightForWidth())
         Rectangle.setSizePolicy(sizePolicy)
         Rectangle.setMinimumSize(QSize(0, 0))
-        # allow Rectangle to grow horizontally per layout (no fixed maximum width)
         Rectangle.setMaximumSize(QSize(16777215, 16777215))
         Rectangle.setAutoFillBackground(False)
         self.verticalLayout = QVBoxLayout(Rectangle)
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.verticalLayout.setContentsMargins(4, 4, 9, 4)
+        self.verticalLayout.setContentsMargins(QMargins(4, 4, 9, 4))
         self.MessageContent = QLabel(Rectangle)
         self.MessageContent.setObjectName(u"MessageContent")
-        # make the QLabel wrap text
         self.MessageContent.setWordWrap(True)
-        sizePolicy = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        self.MessageContent.setSizePolicy(sizePolicy)
+        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.MessageContent.sizePolicy().hasHeightForWidth())
+        self.MessageContent.setSizePolicy(sizePolicy1)
         font = QFont()
+        font.setFamilies([u"Segoe UI"])
         font.setPointSize(12)
-        font.setFamily("Segoe UI")
         self.MessageContent.setFont(font)
         self.MessageContent.setLayoutDirection(Qt.LeftToRight)
-        # make the QLabel visually transparent so the parent bubble shows through
-        self.MessageContent.setStyleSheet("background: transparent; border: none;")
-        self.MessageContent.setContentsMargins(0, 0, 0, 0)
-        self.MessageContent.setAlignment(Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignTop|Qt.AlignmentFlag.AlignLeading)
+        self.MessageContent.setStyleSheet(u"background: transparent; border: none;")
+        self.MessageContent.setContentsMargins(QMargins(0, 0, 0, 0))
 
-        self.verticalLayout.addWidget(self.MessageContent, 0, Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignTop)
+        self.verticalLayout.addWidget(self.MessageContent)
 
 
         self.retranslateUi(Rectangle)
@@ -62,9 +59,7 @@ class Ui_Rectangle(object):
     # setupUi
 
     def retranslateUi(self, Rectangle):
-        Rectangle.setWindowTitle(QCoreApplication.translate("Rectangle", u"Form", None))
-        Rectangle.setProperty(u"Role", "")
-        # set label text
-        self.MessageContent.setText(QCoreApplication.translate("Rectangle", u"text", None))
+        self.MessageContent.setText("")
+        pass
     # retranslateUi
 
