@@ -17,7 +17,7 @@ _No installation required. Just download and run._
 
 ## How to Use
 
-1. Download a build from above.
+1. Download a build from the releases tab.
 2. Double-click the `.exe` file.
 3. Type your message and press Enter.
 
