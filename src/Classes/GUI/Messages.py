@@ -8,7 +8,7 @@ class AbstractMessage(QFrame):
     def __init__(self,Text,*args, **kwargs):
         super().__init__(*args, **kwargs)
         self.loader = Ui_Rectangle()
-        MakeCustomWidget(self.loader,self,StyleSheet=None)
+        MakeCustomWidget(self.loader,self,None)
         # guard flags to avoid recursive resize loops
         self._updating = False
         self._pending_resize = False

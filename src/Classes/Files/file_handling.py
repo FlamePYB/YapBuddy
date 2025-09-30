@@ -27,13 +27,16 @@ class NormalFile(File): #TODO: make this work for real files
             return self._full_path.read_text(encoding="utf-8")
         except Exception:
             return None
-class QResource(File): 
-    def __init__(self,prefix,path):
+class QResource(): 
+    def __init__(self,prefix:str,path:str):
         self._file = QFile(f":{prefix}/{path}")
-        if not self._file.open(QFile.ReadOnly | QFile.Text ): 
-            raise IOError(f"Cannot open resource: {path}")
-        self._stream = QTextStream(self._file)
-        self._file.close()
+        self._prefix = prefix
+        self._path = path
     @property
     def content(self):
-        return self._stream.readAll()
+        if not self._file.open(QFile.ReadOnly | QFile.Text ): 
+            raise IOError(f"Cannot open resource: {self._path}")
+        self._stream = QTextStream(self._file)
+        self._content= self._stream.readAll()
+        self._file.close()
+        return self._content

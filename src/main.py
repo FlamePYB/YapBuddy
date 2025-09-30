@@ -8,7 +8,7 @@ from src.API.Bot import ChatBot
 from src.Message_Mechanics.functions import get_sent_message
 from functools import partial
 from res import res_rc
-
+from src.Classes.Files.file_handling import QResource
 
 def main(argv=None):
     """Start the Qt application. Call this from the repo root run.py launcher.
@@ -22,7 +22,8 @@ def main(argv=None):
     app = QApplication(_argv)
 
     window = QMainWindow()
-    MakeCustomWidget(Ui_MainWindow(), window, ":/style/files/MainWindow.qss")
+    window_stylesheet = QResource("/style","files/MainWindow.qss")
+    MakeCustomWidget(Ui_MainWindow(), window, window_stylesheet)
     window.show()
     MessageArea = window.findChild(QWidget, "MessageArea")
     message_input_widget: QLineEdit = window.findChild(QLineEdit, "MessageInput")  # type:ignore
