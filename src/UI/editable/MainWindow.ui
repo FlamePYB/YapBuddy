@@ -19,7 +19,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>YapBuddyt</string>
   </property>
   <property name="windowIcon">
    <iconset resource="../../../res/res.qrc">
