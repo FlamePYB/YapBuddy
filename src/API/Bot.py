@@ -1,5 +1,5 @@
 import os
-from Classes.Files.file_handling import get_file_content_of
+from src.Classes.Files.file_handling import NormalFile
 from src.API.res.Headers import ai_client
 from src.Message_Mechanics.messages import Message
 from src.Message_Mechanics.chat import Chat
@@ -9,6 +9,7 @@ class ChatBot:
         self.success: bool = True
         self.client = None
         self.client_error_message = None
+        self.instructions = NormalFile("assets\\instructions.txt",type="RELATIVE")
         try:
             self.client = ai_client
         except Exception as e:
@@ -23,7 +24,7 @@ class ChatBot:
     def messages(self):
         return [
             {"role": "system",
-                "content": get_file_content_of("assets\\instructions.txt")},
+                "content": self.instructions.content},
             *self.chat.messages
         ]
     def respond(self, user_message):

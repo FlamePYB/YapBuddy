@@ -2,37 +2,38 @@ from PySide6.QtCore import QFile, QTextStream
 from res import res_rc
 import sys
 from pathlib import Path
-from deprecated import deprecated
+from functools import singledispatch
+from typing import Literal
 
 class File: # TODO: make this for virtual pathes and the shorten the repetitive work in other variants
-    def __init__(self,path):
-        pass
+    def __init__(self,path:str,type:Literal["ABSOLUTE","RELATIVE"]):
+        self._path = path
+        match type:
+            case "ABSOLUTE":
+                self._base = ""
+            case "RELATIVE":
+                self._base = "."
+                
+                
+class NormalFile(File): #TODO: make this work for real files
+    def __init__(self, path: str,type):
+        super().__init__(path,type)
+        self._path = path
+        base_path = Path(self._base).resolve()
+        self._full_path = (base_path / Path(self._path)).resolve()
+    @property
+    def content(self) -> str | None:
+        try:
+            return self._full_path.read_text(encoding="utf-8")
+        except Exception:
+            return None
 class QResource(File): 
     def __init__(self,prefix,path):
-        file = QFile(f":{prefix}/{path}")
-        if not file.open(QFile.ReadOnly | QFile.Text ): 
+        self._file = QFile(f":{prefix}/{path}")
+        if not self._file.open(QFile.ReadOnly | QFile.Text ): 
             raise IOError(f"Cannot open resource: {path}")
-        self._stream = QTextStream(file)
-        self._content = self._stream.readAll()
-        file.close()
-class NormalFile(File): #TODO: make this work for real files
-    pass
-class FrozenFile(NormalFile): #TODO: make this work for files in an exe
-    pass
-    pass
-class AutoDetectedFile(File): #TODO: make this choose the variant to use depending on the file type
-    pass
-
-@deprecated
-def get_file_content_of(path: str, base_dir: str | Path | None = None) -> str:
-    if path.startswith(":"):
-        return QResource(path)
-    if base_dir is None:
-        if getattr(sys, 'frozen', False):
-            base = Path(sys._MEIPASS)  # type: ignore
-        else:
-            base = Path.cwd()
-    else:
-        base = Path(base_dir)
-    full_path = (base / path).resolve()
-    return full_path.read_text(encoding="utf-8")
+        self._stream = QTextStream(self._file)
+        self._file.close()
+    @property
+    def content(self):
+        return self._stream.readAll()

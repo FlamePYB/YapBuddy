@@ -1,4 +1,4 @@
-from src.UI.Compiled.Message import Ui_Rectangle
+from src.UI.Message import Ui_Rectangle
 from src.Utils.widgets import MakeCustomWidget
 from PySide6.QtGui import QTextOption
 from PySide6.QtWidgets import QFrame, QSizePolicy, QWidget
