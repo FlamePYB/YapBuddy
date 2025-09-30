@@ -1,4 +1,4 @@
-from UI.MainWindow import Ui_MainWindow
+from src.UI.MainWindow import Ui_MainWindow
 from PySide6.QtWidgets import QApplication,QMainWindow,QWidget,QVBoxLayout,QLineEdit
 from sys import argv as exec_args
 from src.Utils.widgets import MakeCustomWidget
@@ -39,5 +39,3 @@ def main(argv=None):
     return app.exec()
 
     
-if __name__ == "__main__":
-    main()
