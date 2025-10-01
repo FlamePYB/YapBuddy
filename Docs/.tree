@@ -1,137 +1,748 @@
 .
-|-- API
-|   |-- Bot.py
-|   `-- res
-|       |-- Headers.py
-|       `-- instructions.txt
-|-- Builds
-|   |-- yapper-v-0-3-2-beta.exe
-|   `-- yapper-v0-1-2-beta.exe
-|-- Message_Mechanics
-|   |-- chat.py
-|   |-- functions.py
-|   `-- messages.py
+|-- Docs
+|   |-- Version-Log.md
+|   |-- installation_config.json
+|   `-- wished.tree
+|-- License.txt
 |-- README.md
-|-- UI
-|   |-- Compiled
-|   |   |-- MainWindow.py
-|   |   `-- Message.py
-|   |-- CustomWidgets.py
-|   `-- editable
-|       |-- MainWindow.ui
-|       `-- Message.ui
-|-- Utils
-|   |-- file_handling.py
-|   `-- widgets.py
-|-- Version-Log.md
-|-- file_tree.txt
-|-- main.py
-|-- main.spec
-|-- req.txt
+|-- YapBuddy.code-workspace
+|-- assets
+|   `-- instructions.txt
+|-- dist
+|   `-- YapBuddy_Release.exe
+|-- install_cfg.spec
+|-- installer.bash
+|-- requirements.txt
 |-- res
-|   `-- images
-|       |-- favicon.ico
-|       `-- favicon.png
-|-- res_rc.py
-|-- res_rc.qrc
-|-- stylesheets
-|   |-- AI_Message.qss
-|   |-- MainWindow.qss
-|   `-- UserMessage.qss
-`-- test.py
-
-11 directories, 29 files
-.
-|-- API
-|   |-- Bot.py
-|   `-- res
-|       |-- Headers.py
-|       `-- instructions.txt
-|-- Message_Mechanics
-|   |-- chat.py
-|   |-- functions.py
-|   `-- messages.py
-|-- README.md
-|-- UI
-|   |-- Compiled
+|   |-- files
+|   |   |-- MainWindow.qss
+|   |   |-- favicon.ico
+|   |   `-- favicon.png
+|   |-- res.qrc
+|   `-- res_rc.py
+|-- run.build
+|   |-- __bytecode.const
+|   |-- __constants.bin
+|   |-- __constants.c
+|   |-- __constants.const
+|   |-- __constants.h
+|   |-- __constants.txt
+|   |-- __helpers.c
+|   |-- __helpers.h
+|   |-- __loader.c
+|   |-- module.PySide6-postLoad.c
+|   |-- module.PySide6-postLoad.const
+|   |-- module.PySide6-preLoad.c
+|   |-- module.PySide6-preLoad.const
+|   |-- module.PySide6.QtCore-postLoad.c
+|   |-- module.PySide6.QtCore-postLoad.const
+|   |-- module.PySide6.c
+|   |-- module.PySide6.const
+|   |-- module.PySide6.support.c
+|   |-- module.PySide6.support.const
+|   |-- module.PySide6.support.deprecated.c
+|   |-- module.PySide6.support.deprecated.const
+|   |-- module.__main__.c
+|   |-- module.__main__.const
+|   |-- module.__parents_main__.c
+|   |-- module.__parents_main__.const
+|   |-- module.annotated_types.c
+|   |-- module.annotated_types.const
+|   |-- module.anyio-preLoad.c
+|   |-- module.anyio-preLoad.const
+|   |-- module.anyio._backends._asyncio.c
+|   |-- module.anyio._backends._asyncio.const
+|   |-- module.anyio._backends.c
+|   |-- module.anyio._backends.const
+|   |-- module.anyio._core._asyncio_selector_thread.c
+|   |-- module.anyio._core._asyncio_selector_thread.const
+|   |-- module.anyio._core._contextmanagers.c
+|   |-- module.anyio._core._contextmanagers.const
+|   |-- module.anyio._core._eventloop.c
+|   |-- module.anyio._core._eventloop.const
+|   |-- module.anyio._core._exceptions.c
+|   |-- module.anyio._core._exceptions.const
+|   |-- module.anyio._core._fileio.c
+|   |-- module.anyio._core._fileio.const
+|   |-- module.anyio._core._resources.c
+|   |-- module.anyio._core._resources.const
+|   |-- module.anyio._core._signals.c
+|   |-- module.anyio._core._signals.const
+|   |-- module.anyio._core._sockets.c
+|   |-- module.anyio._core._sockets.const
+|   |-- module.anyio._core._streams.c
+|   |-- module.anyio._core._streams.const
+|   |-- module.anyio._core._subprocesses.c
+|   |-- module.anyio._core._subprocesses.const
+|   |-- module.anyio._core._synchronization.c
+|   |-- module.anyio._core._synchronization.const
+|   |-- module.anyio._core._tasks.c
+|   |-- module.anyio._core._tasks.const
+|   |-- module.anyio._core._tempfile.c
+|   |-- module.anyio._core._tempfile.const
+|   |-- module.anyio._core._testing.c
+|   |-- module.anyio._core._testing.const
+|   |-- module.anyio._core._typedattr.c
+|   |-- module.anyio._core._typedattr.const
+|   |-- module.anyio._core.c
+|   |-- module.anyio._core.const
+|   |-- module.anyio.abc._eventloop.c
+|   |-- module.anyio.abc._eventloop.const
+|   |-- module.anyio.abc._resources.c
+|   |-- module.anyio.abc._resources.const
+|   |-- module.anyio.abc._sockets.c
+|   |-- module.anyio.abc._sockets.const
+|   |-- module.anyio.abc._streams.c
+|   |-- module.anyio.abc._streams.const
+|   |-- module.anyio.abc._subprocesses.c
+|   |-- module.anyio.abc._subprocesses.const
+|   |-- module.anyio.abc._tasks.c
+|   |-- module.anyio.abc._tasks.const
+|   |-- module.anyio.abc._testing.c
+|   |-- module.anyio.abc._testing.const
+|   |-- module.anyio.abc.c
+|   |-- module.anyio.abc.const
+|   |-- module.anyio.c
+|   |-- module.anyio.const
+|   |-- module.anyio.from_thread.c
+|   |-- module.anyio.from_thread.const
+|   |-- module.anyio.lowlevel.c
+|   |-- module.anyio.lowlevel.const
+|   |-- module.anyio.streams.c
+|   |-- module.anyio.streams.const
+|   |-- module.anyio.streams.memory.c
+|   |-- module.anyio.streams.memory.const
+|   |-- module.anyio.streams.stapled.c
+|   |-- module.anyio.streams.stapled.const
+|   |-- module.anyio.streams.tls.c
+|   |-- module.anyio.streams.tls.const
+|   |-- module.anyio.to_thread.c
+|   |-- module.anyio.to_thread.const
+|   |-- module.cerebras.c
+|   |-- module.cerebras.cloud.c
+|   |-- module.cerebras.cloud.const
+|   |-- module.cerebras.cloud.sdk._base_client.c
+|   |-- module.cerebras.cloud.sdk._base_client.const
+|   |-- module.cerebras.cloud.sdk._client.c
+|   |-- module.cerebras.cloud.sdk._client.const
+|   |-- module.cerebras.cloud.sdk._compat.c
+|   |-- module.cerebras.cloud.sdk._compat.const
+|   |-- module.cerebras.cloud.sdk._constants.c
+|   |-- module.cerebras.cloud.sdk._constants.const
+|   |-- module.cerebras.cloud.sdk._exceptions.c
+|   |-- module.cerebras.cloud.sdk._exceptions.const
+|   |-- module.cerebras.cloud.sdk._files.c
+|   |-- module.cerebras.cloud.sdk._files.const
+|   |-- module.cerebras.cloud.sdk._models.c
+|   |-- module.cerebras.cloud.sdk._models.const
+|   |-- module.cerebras.cloud.sdk._qs.c
+|   |-- module.cerebras.cloud.sdk._qs.const
+|   |-- module.cerebras.cloud.sdk._resource.c
+|   |-- module.cerebras.cloud.sdk._resource.const
+|   |-- module.cerebras.cloud.sdk._response.c
+|   |-- module.cerebras.cloud.sdk._response.const
+|   |-- module.cerebras.cloud.sdk._streaming.c
+|   |-- module.cerebras.cloud.sdk._streaming.const
+|   |-- module.cerebras.cloud.sdk._types.c
+|   |-- module.cerebras.cloud.sdk._types.const
+|   |-- module.cerebras.cloud.sdk._utils._logs.c
+|   |-- module.cerebras.cloud.sdk._utils._logs.const
+|   |-- module.cerebras.cloud.sdk._utils._proxy.c
+|   |-- module.cerebras.cloud.sdk._utils._proxy.const
+|   |-- module.cerebras.cloud.sdk._utils._reflection.c
+|   |-- module.cerebras.cloud.sdk._utils._reflection.const
+|   |-- module.cerebras.cloud.sdk._utils._resources_proxy.c
+|   |-- module.cerebras.cloud.sdk._utils._resources_proxy.const
+|   |-- module.cerebras.cloud.sdk._utils._streams.c
+|   |-- module.cerebras.cloud.sdk._utils._streams.const
+|   |-- module.cerebras.cloud.sdk._utils._sync.c
+|   |-- module.cerebras.cloud.sdk._utils._sync.const
+|   |-- module.cerebras.cloud.sdk._utils._transform.c
+|   |-- module.cerebras.cloud.sdk._utils._transform.const
+|   |-- module.cerebras.cloud.sdk._utils._typing.c
+|   |-- module.cerebras.cloud.sdk._utils._typing.const
+|   |-- module.cerebras.cloud.sdk._utils._utils.c
+|   |-- module.cerebras.cloud.sdk._utils._utils.const
+|   |-- module.cerebras.cloud.sdk._utils.c
+|   |-- module.cerebras.cloud.sdk._utils.const
+|   |-- module.cerebras.cloud.sdk._version.c
+|   |-- module.cerebras.cloud.sdk._version.const
+|   |-- module.cerebras.cloud.sdk.c
+|   |-- module.cerebras.cloud.sdk.const
+|   |-- module.cerebras.cloud.sdk.resources.c
+|   |-- module.cerebras.cloud.sdk.resources.chat.c
+|   |-- module.cerebras.cloud.sdk.resources.chat.chat.c
+|   |-- module.cerebras.cloud.sdk.resources.chat.chat.const
+|   |-- module.cerebras.cloud.sdk.resources.chat.completions.c
+|   |-- module.cerebras.cloud.sdk.resources.chat.completions.const
+|   |-- module.cerebras.cloud.sdk.resources.chat.const
+|   |-- module.cerebras.cloud.sdk.resources.completions.c
+|   |-- module.cerebras.cloud.sdk.resources.completions.const
+|   |-- module.cerebras.cloud.sdk.resources.const
+|   |-- module.cerebras.cloud.sdk.resources.models.c
+|   |-- module.cerebras.cloud.sdk.resources.models.const
+|   |-- module.cerebras.cloud.sdk.types.c
+|   |-- module.cerebras.cloud.sdk.types.chat.c
+|   |-- module.cerebras.cloud.sdk.types.chat.chat_completion.c
+|   |-- module.cerebras.cloud.sdk.types.chat.chat_completion.const
+|   |-- module.cerebras.cloud.sdk.types.chat.completion_create_params.c
+|   |-- module.cerebras.cloud.sdk.types.chat.completion_create_params.const
+|   |-- module.cerebras.cloud.sdk.types.chat.const
+|   |-- module.cerebras.cloud.sdk.types.completion.c
+|   |-- module.cerebras.cloud.sdk.types.completion.const
+|   |-- module.cerebras.cloud.sdk.types.completion_create_params.c
+|   |-- module.cerebras.cloud.sdk.types.completion_create_params.const
+|   |-- module.cerebras.cloud.sdk.types.const
+|   |-- module.cerebras.cloud.sdk.types.model_list_response.c
+|   |-- module.cerebras.cloud.sdk.types.model_list_response.const
+|   |-- module.cerebras.cloud.sdk.types.model_retrieve_response.c
+|   |-- module.cerebras.cloud.sdk.types.model_retrieve_response.const
+|   |-- module.cerebras.const
+|   |-- module.certifi.c
+|   |-- module.certifi.const
+|   |-- module.certifi.core.c
+|   |-- module.certifi.core.const
+|   |-- module.charset_normalizer.api.c
+|   |-- module.charset_normalizer.api.const
+|   |-- module.charset_normalizer.c
+|   |-- module.charset_normalizer.cd.c
+|   |-- module.charset_normalizer.cd.const
+|   |-- module.charset_normalizer.const
+|   |-- module.charset_normalizer.constant.c
+|   |-- module.charset_normalizer.constant.const
+|   |-- module.charset_normalizer.legacy.c
+|   |-- module.charset_normalizer.legacy.const
+|   |-- module.charset_normalizer.models.c
+|   |-- module.charset_normalizer.models.const
+|   |-- module.charset_normalizer.utils.c
+|   |-- module.charset_normalizer.utils.const
+|   |-- module.charset_normalizer.version.c
+|   |-- module.charset_normalizer.version.const
+|   |-- module.distro.c
+|   |-- module.distro.const
+|   |-- module.distro.distro.c
+|   |-- module.distro.distro.const
+|   |-- module.h11._abnf.c
+|   |-- module.h11._abnf.const
+|   |-- module.h11._connection.c
+|   |-- module.h11._connection.const
+|   |-- module.h11._events.c
+|   |-- module.h11._events.const
+|   |-- module.h11._headers.c
+|   |-- module.h11._headers.const
+|   |-- module.h11._readers.c
+|   |-- module.h11._readers.const
+|   |-- module.h11._receivebuffer.c
+|   |-- module.h11._receivebuffer.const
+|   |-- module.h11._state.c
+|   |-- module.h11._state.const
+|   |-- module.h11._util.c
+|   |-- module.h11._util.const
+|   |-- module.h11._version.c
+|   |-- module.h11._version.const
+|   |-- module.h11._writers.c
+|   |-- module.h11._writers.const
+|   |-- module.h11.c
+|   |-- module.h11.const
+|   |-- module.httpcore._api.c
+|   |-- module.httpcore._api.const
+|   |-- module.httpcore._async.c
+|   |-- module.httpcore._async.connection.c
+|   |-- module.httpcore._async.connection.const
+|   |-- module.httpcore._async.connection_pool.c
+|   |-- module.httpcore._async.connection_pool.const
+|   |-- module.httpcore._async.const
+|   |-- module.httpcore._async.http11.c
+|   |-- module.httpcore._async.http11.const
+|   |-- module.httpcore._async.http2.c
+|   |-- module.httpcore._async.http2.const
+|   |-- module.httpcore._async.http_proxy.c
+|   |-- module.httpcore._async.http_proxy.const
+|   |-- module.httpcore._async.interfaces.c
+|   |-- module.httpcore._async.interfaces.const
+|   |-- module.httpcore._async.socks_proxy.c
+|   |-- module.httpcore._async.socks_proxy.const
+|   |-- module.httpcore._backends.anyio.c
+|   |-- module.httpcore._backends.anyio.const
+|   |-- module.httpcore._backends.auto.c
+|   |-- module.httpcore._backends.auto.const
+|   |-- module.httpcore._backends.base.c
+|   |-- module.httpcore._backends.base.const
+|   |-- module.httpcore._backends.c
+|   |-- module.httpcore._backends.const
+|   |-- module.httpcore._backends.mock.c
+|   |-- module.httpcore._backends.mock.const
+|   |-- module.httpcore._backends.sync.c
+|   |-- module.httpcore._backends.sync.const
+|   |-- module.httpcore._backends.trio.c
+|   |-- module.httpcore._backends.trio.const
+|   |-- module.httpcore._exceptions.c
+|   |-- module.httpcore._exceptions.const
+|   |-- module.httpcore._models.c
+|   |-- module.httpcore._models.const
+|   |-- module.httpcore._ssl.c
+|   |-- module.httpcore._ssl.const
+|   |-- module.httpcore._sync.c
+|   |-- module.httpcore._sync.connection.c
+|   |-- module.httpcore._sync.connection.const
+|   |-- module.httpcore._sync.connection_pool.c
+|   |-- module.httpcore._sync.connection_pool.const
+|   |-- module.httpcore._sync.const
+|   |-- module.httpcore._sync.http11.c
+|   |-- module.httpcore._sync.http11.const
+|   |-- module.httpcore._sync.http2.c
+|   |-- module.httpcore._sync.http2.const
+|   |-- module.httpcore._sync.http_proxy.c
+|   |-- module.httpcore._sync.http_proxy.const
+|   |-- module.httpcore._sync.interfaces.c
+|   |-- module.httpcore._sync.interfaces.const
+|   |-- module.httpcore._sync.socks_proxy.c
+|   |-- module.httpcore._sync.socks_proxy.const
+|   |-- module.httpcore._synchronization.c
+|   |-- module.httpcore._synchronization.const
+|   |-- module.httpcore._trace.c
+|   |-- module.httpcore._trace.const
+|   |-- module.httpcore._utils.c
+|   |-- module.httpcore._utils.const
+|   |-- module.httpcore.c
+|   |-- module.httpcore.const
+|   |-- module.httpx.__version__.c
+|   |-- module.httpx.__version__.const
+|   |-- module.httpx._api.c
+|   |-- module.httpx._api.const
+|   |-- module.httpx._auth.c
+|   |-- module.httpx._auth.const
+|   |-- module.httpx._client.c
+|   |-- module.httpx._client.const
+|   |-- module.httpx._config.c
+|   |-- module.httpx._config.const
+|   |-- module.httpx._content.c
+|   |-- module.httpx._content.const
+|   |-- module.httpx._decoders.c
+|   |-- module.httpx._decoders.const
+|   |-- module.httpx._exceptions.c
+|   |-- module.httpx._exceptions.const
+|   |-- module.httpx._main.c
+|   |-- module.httpx._main.const
+|   |-- module.httpx._models.c
+|   |-- module.httpx._models.const
+|   |-- module.httpx._multipart.c
+|   |-- module.httpx._multipart.const
+|   |-- module.httpx._status_codes.c
+|   |-- module.httpx._status_codes.const
+|   |-- module.httpx._transports.asgi.c
+|   |-- module.httpx._transports.asgi.const
+|   |-- module.httpx._transports.base.c
+|   |-- module.httpx._transports.base.const
+|   |-- module.httpx._transports.c
+|   |-- module.httpx._transports.const
+|   |-- module.httpx._transports.default.c
+|   |-- module.httpx._transports.default.const
+|   |-- module.httpx._transports.mock.c
+|   |-- module.httpx._transports.mock.const
+|   |-- module.httpx._transports.wsgi.c
+|   |-- module.httpx._transports.wsgi.const
+|   |-- module.httpx._types.c
+|   |-- module.httpx._types.const
+|   |-- module.httpx._urlparse.c
+|   |-- module.httpx._urlparse.const
+|   |-- module.httpx._urls.c
+|   |-- module.httpx._urls.const
+|   |-- module.httpx._utils.c
+|   |-- module.httpx._utils.const
+|   |-- module.httpx.c
+|   |-- module.httpx.const
+|   |-- module.idna.c
+|   |-- module.idna.const
+|   |-- module.idna.core.c
+|   |-- module.idna.core.const
+|   |-- module.idna.idnadata.c
+|   |-- module.idna.idnadata.const
+|   |-- module.idna.intranges.c
+|   |-- module.idna.intranges.const
+|   |-- module.idna.package_data.c
+|   |-- module.idna.package_data.const
+|   |-- module.idna.uts46data.c
+|   |-- module.idna.uts46data.const
+|   |-- module.multiprocessing-postLoad.c
+|   |-- module.multiprocessing-postLoad.const
+|   |-- module.multiprocessing-preLoad.c
+|   |-- module.multiprocessing-preLoad.const
+|   |-- module.pydantic._internal._config.c
+|   |-- module.pydantic._internal._config.const
+|   |-- module.pydantic._internal._core_metadata.c
+|   |-- module.pydantic._internal._core_metadata.const
+|   |-- module.pydantic._internal._core_utils.c
+|   |-- module.pydantic._internal._core_utils.const
+|   |-- module.pydantic._internal._dataclasses.c
+|   |-- module.pydantic._internal._dataclasses.const
+|   |-- module.pydantic._internal._decorators.c
+|   |-- module.pydantic._internal._decorators.const
+|   |-- module.pydantic._internal._discriminated_union.c
+|   |-- module.pydantic._internal._discriminated_union.const
+|   |-- module.pydantic._internal._docs_extraction.c
+|   |-- module.pydantic._internal._docs_extraction.const
+|   |-- module.pydantic._internal._fields.c
+|   |-- module.pydantic._internal._fields.const
+|   |-- module.pydantic._internal._forward_ref.c
+|   |-- module.pydantic._internal._forward_ref.const
+|   |-- module.pydantic._internal._generate_schema.c
+|   |-- module.pydantic._internal._generate_schema.const
+|   |-- module.pydantic._internal._generics.c
+|   |-- module.pydantic._internal._generics.const
+|   |-- module.pydantic._internal._git.c
+|   |-- module.pydantic._internal._git.const
+|   |-- module.pydantic._internal._import_utils.c
+|   |-- module.pydantic._internal._import_utils.const
+|   |-- module.pydantic._internal._internal_dataclass.c
+|   |-- module.pydantic._internal._internal_dataclass.const
+|   |-- module.pydantic._internal._known_annotated_metadata.c
+|   |-- module.pydantic._internal._known_annotated_metadata.const
+|   |-- module.pydantic._internal._mock_val_ser.c
+|   |-- module.pydantic._internal._mock_val_ser.const
+|   |-- module.pydantic._internal._model_construction.c
+|   |-- module.pydantic._internal._model_construction.const
+|   |-- module.pydantic._internal._namespace_utils.c
+|   |-- module.pydantic._internal._namespace_utils.const
+|   |-- module.pydantic._internal._repr.c
+|   |-- module.pydantic._internal._repr.const
+|   |-- module.pydantic._internal._schema_gather.c
+|   |-- module.pydantic._internal._schema_gather.const
+|   |-- module.pydantic._internal._schema_generation_shared.c
+|   |-- module.pydantic._internal._schema_generation_shared.const
+|   |-- module.pydantic._internal._serializers.c
+|   |-- module.pydantic._internal._serializers.const
+|   |-- module.pydantic._internal._signature.c
+|   |-- module.pydantic._internal._signature.const
+|   |-- module.pydantic._internal._typing_extra.c
+|   |-- module.pydantic._internal._typing_extra.const
+|   |-- module.pydantic._internal._utils.c
+|   |-- module.pydantic._internal._utils.const
+|   |-- module.pydantic._internal._validators.c
+|   |-- module.pydantic._internal._validators.const
+|   |-- module.pydantic._internal.c
+|   |-- module.pydantic._internal.const
+|   |-- module.pydantic._migration.c
+|   |-- module.pydantic._migration.const
+|   |-- module.pydantic.alias_generators.c
+|   |-- module.pydantic.alias_generators.const
+|   |-- module.pydantic.aliases.c
+|   |-- module.pydantic.aliases.const
+|   |-- module.pydantic.annotated_handlers.c
+|   |-- module.pydantic.annotated_handlers.const
+|   |-- module.pydantic.c
+|   |-- module.pydantic.class_validators.c
+|   |-- module.pydantic.class_validators.const
+|   |-- module.pydantic.color.c
+|   |-- module.pydantic.color.const
+|   |-- module.pydantic.config.c
+|   |-- module.pydantic.config.const
+|   |-- module.pydantic.const
+|   |-- module.pydantic.dataclasses.c
+|   |-- module.pydantic.dataclasses.const
+|   |-- module.pydantic.datetime_parse.c
+|   |-- module.pydantic.datetime_parse.const
+|   |-- module.pydantic.deprecated.c
+|   |-- module.pydantic.deprecated.const
+|   |-- module.pydantic.deprecated.copy_internals.c
+|   |-- module.pydantic.deprecated.copy_internals.const
+|   |-- module.pydantic.deprecated.decorator.c
+|   |-- module.pydantic.deprecated.decorator.const
+|   |-- module.pydantic.deprecated.json.c
+|   |-- module.pydantic.deprecated.json.const
+|   |-- module.pydantic.deprecated.parse.c
+|   |-- module.pydantic.deprecated.parse.const
+|   |-- module.pydantic.env_settings.c
+|   |-- module.pydantic.env_settings.const
+|   |-- module.pydantic.error_wrappers.c
+|   |-- module.pydantic.error_wrappers.const
+|   |-- module.pydantic.errors.c
+|   |-- module.pydantic.errors.const
+|   |-- module.pydantic.fields.c
+|   |-- module.pydantic.fields.const
+|   |-- module.pydantic.functional_validators.c
+|   |-- module.pydantic.functional_validators.const
+|   |-- module.pydantic.generics.c
+|   |-- module.pydantic.generics.const
+|   |-- module.pydantic.json.c
+|   |-- module.pydantic.json.const
+|   |-- module.pydantic.json_schema.c
+|   |-- module.pydantic.json_schema.const
+|   |-- module.pydantic.main.c
+|   |-- module.pydantic.main.const
+|   |-- module.pydantic.mypy.c
+|   |-- module.pydantic.mypy.const
+|   |-- module.pydantic.networks.c
+|   |-- module.pydantic.networks.const
+|   |-- module.pydantic.parse.c
+|   |-- module.pydantic.parse.const
+|   |-- module.pydantic.plugin._loader.c
+|   |-- module.pydantic.plugin._loader.const
+|   |-- module.pydantic.plugin._schema_validator.c
+|   |-- module.pydantic.plugin._schema_validator.const
+|   |-- module.pydantic.plugin.c
+|   |-- module.pydantic.plugin.const
+|   |-- module.pydantic.root_model.c
+|   |-- module.pydantic.root_model.const
+|   |-- module.pydantic.schema.c
+|   |-- module.pydantic.schema.const
+|   |-- module.pydantic.type_adapter.c
+|   |-- module.pydantic.type_adapter.const
+|   |-- module.pydantic.types.c
+|   |-- module.pydantic.types.const
+|   |-- module.pydantic.typing.c
+|   |-- module.pydantic.typing.const
+|   |-- module.pydantic.utils.c
+|   |-- module.pydantic.utils.const
+|   |-- module.pydantic.v1.annotated_types.c
+|   |-- module.pydantic.v1.annotated_types.const
+|   |-- module.pydantic.v1.c
+|   |-- module.pydantic.v1.class_validators.c
+|   |-- module.pydantic.v1.class_validators.const
+|   |-- module.pydantic.v1.color.c
+|   |-- module.pydantic.v1.color.const
+|   |-- module.pydantic.v1.config.c
+|   |-- module.pydantic.v1.config.const
+|   |-- module.pydantic.v1.const
+|   |-- module.pydantic.v1.dataclasses.c
+|   |-- module.pydantic.v1.dataclasses.const
+|   |-- module.pydantic.v1.datetime_parse.c
+|   |-- module.pydantic.v1.datetime_parse.const
+|   |-- module.pydantic.v1.decorator.c
+|   |-- module.pydantic.v1.decorator.const
+|   |-- module.pydantic.v1.env_settings.c
+|   |-- module.pydantic.v1.env_settings.const
+|   |-- module.pydantic.v1.error_wrappers.c
+|   |-- module.pydantic.v1.error_wrappers.const
+|   |-- module.pydantic.v1.errors.c
+|   |-- module.pydantic.v1.errors.const
+|   |-- module.pydantic.v1.fields.c
+|   |-- module.pydantic.v1.fields.const
+|   |-- module.pydantic.v1.json.c
+|   |-- module.pydantic.v1.json.const
+|   |-- module.pydantic.v1.main.c
+|   |-- module.pydantic.v1.main.const
+|   |-- module.pydantic.v1.networks.c
+|   |-- module.pydantic.v1.networks.const
+|   |-- module.pydantic.v1.parse.c
+|   |-- module.pydantic.v1.parse.const
+|   |-- module.pydantic.v1.schema.c
+|   |-- module.pydantic.v1.schema.const
+|   |-- module.pydantic.v1.tools.c
+|   |-- module.pydantic.v1.tools.const
+|   |-- module.pydantic.v1.types.c
+|   |-- module.pydantic.v1.types.const
+|   |-- module.pydantic.v1.typing.c
+|   |-- module.pydantic.v1.typing.const
+|   |-- module.pydantic.v1.utils.c
+|   |-- module.pydantic.v1.utils.const
+|   |-- module.pydantic.v1.validators.c
+|   |-- module.pydantic.v1.validators.const
+|   |-- module.pydantic.v1.version.c
+|   |-- module.pydantic.v1.version.const
+|   |-- module.pydantic.validators.c
+|   |-- module.pydantic.validators.const
+|   |-- module.pydantic.version.c
+|   |-- module.pydantic.version.const
+|   |-- module.pydantic.warnings.c
+|   |-- module.pydantic.warnings.const
+|   |-- module.pydantic_core.c
+|   |-- module.pydantic_core.const
+|   |-- module.pydantic_core.core_schema.c
+|   |-- module.pydantic_core.core_schema.const
+|   |-- module.requests.__version__.c
+|   |-- module.requests.__version__.const
+|   |-- module.requests._internal_utils.c
+|   |-- module.requests._internal_utils.const
+|   |-- module.requests.adapters.c
+|   |-- module.requests.adapters.const
+|   |-- module.requests.api.c
+|   |-- module.requests.api.const
+|   |-- module.requests.auth.c
+|   |-- module.requests.auth.const
+|   |-- module.requests.c
+|   |-- module.requests.certs.c
+|   |-- module.requests.certs.const
+|   |-- module.requests.compat.c
+|   |-- module.requests.compat.const
+|   |-- module.requests.const
+|   |-- module.requests.cookies.c
+|   |-- module.requests.cookies.const
+|   |-- module.requests.exceptions.c
+|   |-- module.requests.exceptions.const
+|   |-- module.requests.help.c
+|   |-- module.requests.help.const
+|   |-- module.requests.hooks.c
+|   |-- module.requests.hooks.const
+|   |-- module.requests.models.c
+|   |-- module.requests.models.const
+|   |-- module.requests.packages.c
+|   |-- module.requests.packages.const
+|   |-- module.requests.sessions.c
+|   |-- module.requests.sessions.const
+|   |-- module.requests.status_codes.c
+|   |-- module.requests.status_codes.const
+|   |-- module.requests.structures.c
+|   |-- module.requests.structures.const
+|   |-- module.requests.utils.c
+|   |-- module.requests.utils.const
+|   |-- module.res.c
+|   |-- module.res.const
+|   |-- module.res.res_rc.c
+|   |-- module.res.res_rc.const
+|   |-- module.shiboken6.c
+|   |-- module.shiboken6.const
+|   |-- module.sniffio._impl.c
+|   |-- module.sniffio._impl.const
+|   |-- module.sniffio._version.c
+|   |-- module.sniffio._version.const
+|   |-- module.sniffio.c
+|   |-- module.sniffio.const
+|   |-- module.src.API.Bot.c
+|   |-- module.src.API.Bot.const
+|   |-- module.src.API.c
+|   |-- module.src.API.const
+|   |-- module.src.API.res.Headers.c
+|   |-- module.src.API.res.Headers.const
+|   |-- module.src.API.res.c
+|   |-- module.src.API.res.const
+|   |-- module.src.Classes.Files.c
+|   |-- module.src.Classes.Files.const
+|   |-- module.src.Classes.Files.file_handling.c
+|   |-- module.src.Classes.Files.file_handling.const
+|   |-- module.src.Classes.GUI.Messages.c
+|   |-- module.src.Classes.GUI.Messages.const
+|   |-- module.src.Classes.GUI.c
+|   |-- module.src.Classes.GUI.const
+|   |-- module.src.Classes.c
+|   |-- module.src.Classes.const
+|   |-- module.src.Message_Mechanics.c
+|   |-- module.src.Message_Mechanics.chat.c
+|   |-- module.src.Message_Mechanics.chat.const
+|   |-- module.src.Message_Mechanics.const
+|   |-- module.src.Message_Mechanics.functions.c
+|   |-- module.src.Message_Mechanics.functions.const
+|   |-- module.src.Message_Mechanics.messages.c
+|   |-- module.src.Message_Mechanics.messages.const
+|   |-- module.src.UI.CustomWidgets.c
+|   |-- module.src.UI.CustomWidgets.const
+|   |-- module.src.UI.MainWindow.c
+|   |-- module.src.UI.MainWindow.const
+|   |-- module.src.UI.Message.c
+|   |-- module.src.UI.Message.const
+|   |-- module.src.UI.c
+|   |-- module.src.UI.const
+|   |-- module.src.Utils.c
+|   |-- module.src.Utils.const
+|   |-- module.src.Utils.widgets.c
+|   |-- module.src.Utils.widgets.const
+|   |-- module.src.c
+|   |-- module.src.const
+|   |-- module.src.main.c
+|   |-- module.src.main.const
+|   |-- module.typing_extensions.c
+|   |-- module.typing_extensions.const
+|   |-- module.typing_inspection.c
+|   |-- module.typing_inspection.const
+|   |-- module.typing_inspection.introspection.c
+|   |-- module.typing_inspection.introspection.const
+|   |-- module.typing_inspection.typing_objects.c
+|   |-- module.typing_inspection.typing_objects.const
+|   |-- module.urllib3._base_connection.c
+|   |-- module.urllib3._base_connection.const
+|   |-- module.urllib3._collections.c
+|   |-- module.urllib3._collections.const
+|   |-- module.urllib3._request_methods.c
+|   |-- module.urllib3._request_methods.const
+|   |-- module.urllib3._version.c
+|   |-- module.urllib3._version.const
+|   |-- module.urllib3.c
+|   |-- module.urllib3.connection.c
+|   |-- module.urllib3.connection.const
+|   |-- module.urllib3.connectionpool.c
+|   |-- module.urllib3.connectionpool.const
+|   |-- module.urllib3.const
+|   |-- module.urllib3.contrib.c
+|   |-- module.urllib3.contrib.const
+|   |-- module.urllib3.contrib.pyopenssl.c
+|   |-- module.urllib3.contrib.pyopenssl.const
+|   |-- module.urllib3.contrib.socks.c
+|   |-- module.urllib3.contrib.socks.const
+|   |-- module.urllib3.exceptions.c
+|   |-- module.urllib3.exceptions.const
+|   |-- module.urllib3.fields.c
+|   |-- module.urllib3.fields.const
+|   |-- module.urllib3.filepost.c
+|   |-- module.urllib3.filepost.const
+|   |-- module.urllib3.http2.c
+|   |-- module.urllib3.http2.connection.c
+|   |-- module.urllib3.http2.connection.const
+|   |-- module.urllib3.http2.const
+|   |-- module.urllib3.http2.probe.c
+|   |-- module.urllib3.http2.probe.const
+|   |-- module.urllib3.poolmanager.c
+|   |-- module.urllib3.poolmanager.const
+|   |-- module.urllib3.response.c
+|   |-- module.urllib3.response.const
+|   |-- module.urllib3.util.c
+|   |-- module.urllib3.util.connection.c
+|   |-- module.urllib3.util.connection.const
+|   |-- module.urllib3.util.const
+|   |-- module.urllib3.util.proxy.c
+|   |-- module.urllib3.util.proxy.const
+|   |-- module.urllib3.util.request.c
+|   |-- module.urllib3.util.request.const
+|   |-- module.urllib3.util.response.c
+|   |-- module.urllib3.util.response.const
+|   |-- module.urllib3.util.retry.c
+|   |-- module.urllib3.util.retry.const
+|   |-- module.urllib3.util.ssl_.c
+|   |-- module.urllib3.util.ssl_.const
+|   |-- module.urllib3.util.ssl_match_hostname.c
+|   |-- module.urllib3.util.ssl_match_hostname.const
+|   |-- module.urllib3.util.ssltransport.c
+|   |-- module.urllib3.util.ssltransport.const
+|   |-- module.urllib3.util.timeout.c
+|   |-- module.urllib3.util.timeout.const
+|   |-- module.urllib3.util.url.c
+|   |-- module.urllib3.util.url.const
+|   |-- module.urllib3.util.util.c
+|   |-- module.urllib3.util.util.const
+|   |-- module.urllib3.util.wait.c
+|   |-- module.urllib3.util.wait.const
+|   |-- module.zstandard.backend_cffi.c
+|   |-- module.zstandard.backend_cffi.const
+|   |-- module.zstandard.c
+|   |-- module.zstandard.const
+|   |-- scons-debug.bat
+|   `-- scons-debug.py
+|-- run.dist
+|-- run.py
+|-- src
+|   |-- API
+|   |   |-- Bot.py
+|   |   `-- res
+|   |       `-- Headers.py
+|   |-- Classes
+|   |   |-- Files
+|   |   |   `-- file_handling.py
+|   |   `-- GUI
+|   |       `-- Messages.py
+|   |-- Message_Mechanics
+|   |   |-- chat.py
+|   |   |-- functions.py
+|   |   `-- messages.py
+|   |-- UI
+|   |   |-- CustomWidgets.py
 |   |   |-- MainWindow.py
 |   |   |-- Message.py
-|   |   `-- __pycache__
-|   |       |-- MainWindow.cpython-313.pyc
-|   |       `-- Message.cpython-313.pyc
-|   |-- CustomWidgets.py
-|   |-- __pycache__
-|   |   `-- CustomWidgets.cpython-313.pyc
-|   `-- editable
-|       |-- MainWindow.ui
-|       `-- Message.ui
-|-- Utils
-|   |-- __pycache__
-|   |   |-- file_handling.cpython-313.pyc
-|   |   `-- widgets.cpython-313.pyc
-|   |-- file_handling.py
-|   `-- widgets.py
-|-- Version-Log.md
-|-- main.py
-|-- main.spec
-|-- req.txt
-|-- res
-|   `-- images
-|       |-- favicon.ico
-|       `-- favicon.png
-|-- res_rc.py
-|-- res_rc.qrc
-|-- stylesheets
-|   |-- AI_Message.qss
-|   |-- MainWindow.qss
-|   `-- UserMessage.qss
-`-- test.py
+|   |   `-- editable
+|   |       |-- MainWindow.ui
+|   |       `-- Message.ui
+|   |-- Utils
+|   |   `-- widgets.py
+|   `-- main.py
+|-- test.py
+`-- tools
 
-13 directories, 31 files
-.
-|-- API
-|   |-- Bot.py
-|   `-- res
-|       |-- Headers.py
-|       `-- instructions.txt
-|-- Message_Mechanics
-|   |-- chat.py
-|   |-- functions.py
-|   `-- messages.py
-|-- README.md
-|-- UI
-|   |-- Compiled
-|   |   |-- MainWindow.py
-|   |   |-- Message.py
-|   |   `-- __pycache__
-|   |       |-- MainWindow.cpython-313.pyc
-|   |       `-- Message.cpython-313.pyc
-|   |-- CustomWidgets.py
-|   |-- __pycache__
-|   |   `-- CustomWidgets.cpython-313.pyc
-|   `-- editable
-|       |-- MainWindow.ui
-|       `-- Message.ui
-|-- Utils
-|   |-- __pycache__
-|   |   |-- file_handling.cpython-313.pyc
-|   |   `-- widgets.cpython-313.pyc
-|   |-- file_handling.py
-|   `-- widgets.py
-|-- Version-Log.md
-|-- main.py
-|-- main.spec
-|-- req.txt
-|-- res
-|   `-- images
-|       |-- favicon.ico
-|       `-- favicon.png
-|-- res_rc.py
-|-- res_rc.qrc
-|-- stylesheets
-|   |-- AI_Message.qss
-|   |-- MainWindow.qss
-|   `-- UserMessage.qss
-`-- test.py
-
-13 directories, 31 files
+18 directories, 727 files
