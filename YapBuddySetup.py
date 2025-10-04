@@ -1,24 +1,23 @@
 import sys
+import os
 from cx_Freeze import setup, Executable
 
-# Files and folders to include (datas in PyInstaller)
+# Make sure cx_Freeze can discover your src modules (including res_rc.py)
+SRC_DIR = "C:/Users/machr/projects/YapBuddy/src"
+sys.path.insert(0, SRC_DIR)
+
 include_files = [
     ("C:/Users/machr/projects/YapBuddy/assets", "assets"),
-    ("C:/Users/machr/projects/YapBuddy/res", "res"),
-    ("C:/Users/machr/projects/YapBuddy/src/API", "API"),
-    ("C:/Users/machr/projects/YapBuddy/src/Classes", "Classes"),
-    ("C:/Users/machr/projects/YapBuddy/src/Message_Mechanics", "Message_Mechanics"),
-    ("C:/Users/machr/projects/YapBuddy/src/UI/CustomWidgets.py", "CustomWidgets.py"),
-    ("C:/Users/machr/projects/YapBuddy/src/UI/MainWindow.py", "MainWindow.py"),
-    ("C:/Users/machr/projects/YapBuddy/src/UI/Message.py", "Message.py"),
-    ("C:/Users/machr/projects/YapBuddy/src/Utils", "Utils"),
+    # no 'res' here; res_rc.py is code and will be frozen via imports
 ]
 
 build_options = {
-    "packages": [],        # add any hidden imports here if needed
-    "excludes": ["tkinter", "unittest"],  # optional cleanup
+    "packages": [],  # add hidden imports if needed
+    "excludes": ["tkinter", "unittest"],
     "include_files": include_files,
-    "zip_include_packages": ["encodings", "PySide6", "shiboken6"],  # keep zipped
+    "zip_include_packages": ["*"],  # zip all modules, including your src
+    "zip_exclude_packages": [],     # don't leave stdlib loose
+    "optimize": 2,                  # compile to optimized .pyc
 }
 
 base = "Win32GUI" if sys.platform == "win32" else None
@@ -30,7 +29,7 @@ setup(
     options={"build_exe": build_options},
     executables=[
         Executable(
-            "C:/Users/machr/projects/YapBuddy/run.py",
+            "C:/Users/machr/projects/YapBuddy/YapBuddy.py",
             base=base,
             target_name="YapBuddy.exe",
             icon="C:/Users/machr/projects/YapBuddy/res/files/favicon.ico"
