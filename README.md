@@ -68,9 +68,9 @@ Feedback is welcome! If you have ideas or want to contribute, please open an iss
 | Alpha v0.1.2  | `v0.1.2`  | 2025-08-01 | [standealone](https://github.com/FlamePYB/YapBuddy/releases/download/v0.1.2-alpha/yapper-v0-1-2-alpha.exe) |
 | **Source Code** | `main` | latest release | [ZIP](https://github.com/FlamePYB/YapBuddy/archive/refs/heads/main.zip) · [TAR.GZ](https://github.com/FlamePYB/YapBuddy/archive/refs/heads/main.tar.gz) |
 
-# Setup
+## Setup
 
-## Install
+### Install
 
 After having installed the app from assets.
 You will have a file similar to this
@@ -87,7 +87,8 @@ and then you will just follow through with the steps
 ![screenshot 7](screenshots/App/Install/7.png "YapBuddy setup wizard seventh page")
 ![screenshot 7](screenshots/App/Install/8.png "YapBuddy setup wizard eigth page")
 
----
+### Use
+
 And now it's time for the use which is the simplest.
 Just open it:
 
