@@ -26,12 +26,10 @@ def main(argv=[]):
     CustomWidget(Ui_MainWindow(), window, window_stylesheet)
     window.show()
     MessageArea = window.findChild(QWidget, "MessageArea")
-    message_input_widget: QLineEdit = window.findChild(
-        QLineEdit, "MessageInput")  # type:ignore
-
+    message_input_widget: QLineEdit = window.findChild(QLineEdit, "MessageInput")  # type:ignore
 
     chat = Chat(MessageArea)  # type:ignore
-    handle_enter = lambda : get_sent_message(message_input_widget,chat)
+    handle_enter = lambda: get_sent_message(message_input_widget, chat)
     message_input_widget.returnPressed.connect(handle_enter)
     BOT = ChatBot(chat)
 

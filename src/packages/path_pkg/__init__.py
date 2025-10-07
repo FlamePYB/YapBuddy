@@ -27,11 +27,10 @@ class NormalFile(File):
         lg.debug(f"Successfully retrieved full path :{str(self._full_path)}")
 
     @property
-    def content(self) -> str :
+    def content(self) -> str:
         try:
             self.current_content = self._full_path.read_text(encoding="utf-8")
-            lg.debug(
-                f"Successfully read the file content of {self._full_path.name}")
+            lg.debug(f"Successfully read the file content of {self._full_path.name}")
             return self.current_content
         except Exception:
             lg.error(f"Was not able to read file {self._full_path.name}")

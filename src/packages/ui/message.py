@@ -5,10 +5,10 @@ from PySide6.QtWidgets import QFrame, QSizePolicy, QWidget
 
 
 class AbstractMessage(QFrame):
-    def __init__(self,Text,*args, **kwargs):
+    def __init__(self, Text, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.loader = Ui_Rectangle()
-        CustomWidget(self.loader,self,None)
+        CustomWidget(self.loader, self, None)
         # guard flags to avoid recursive resize loops
         self._updating = False
         self._pending_resize = False
@@ -54,12 +54,13 @@ class AbstractMessage(QFrame):
                 self.loader.MessageContent.setText(Text)
             except Exception:
                 pass
+
     def update_content_size(self):
         """Lightweight resize helper: set document wrapping and adjust height once.
 
         We intentionally keep this simple and non-recursive so the parent layout manages widths.
         """
-        widget = getattr(self.loader, 'MessageContent', None)
+        widget = getattr(self.loader, "MessageContent", None)
         if widget is None:
             return
         try:
@@ -128,7 +129,7 @@ class AbstractMessage(QFrame):
         Call this BEFORE adding the widget to the layout when possible so the widget
         is sized correctly immediately on insertion.
         """
-        widget = getattr(self.loader, 'MessageContent', None)
+        widget = getattr(self.loader, "MessageContent", None)
         if widget is None:
             return
         try:
@@ -150,6 +151,7 @@ class AbstractMessage(QFrame):
 
             # If widget is a QLabel use its sizeHint for the given width
             from PySide6.QtWidgets import QLabel
+
             if isinstance(widget, QLabel):
                 # ensure word wrap is on
                 try:
@@ -190,32 +192,32 @@ class AbstractMessage(QFrame):
 
 
 class UserMessage(AbstractMessage):
-    def __init__(self,Text,*args, **kwargs):
-        super().__init__(Text,*args,**kwargs)
-        self.setProperty("Role","User")
+    def __init__(self, Text, *args, **kwargs):
+        super().__init__(Text, *args, **kwargs)
+        self.setProperty("Role", "User")
         # Set property on the inner QFrame so QSS selector matches
-        if hasattr(self.loader, 'MessageContent'):
+        if hasattr(self.loader, "MessageContent"):
             # Find the QFrame created by Ui_Rectangle
             parent_frame = self.loader.MessageContent.parent()
             if parent_frame and isinstance(parent_frame, QWidget):
-                    parent_frame.setProperty("Role", "User")
-                    # enforce a maximum width so the bubble doesn't expand full width
-                    try:
-                        parent_frame.setMaximumWidth(480)
-                    except Exception:
-                        pass
+                parent_frame.setProperty("Role", "User")
+                # enforce a maximum width so the bubble doesn't expand full width
+                try:
+                    parent_frame.setMaximumWidth(480)
+                except Exception:
+                    pass
 
 
 class Ai_Message(AbstractMessage):
-    def __init__(self,Text,*args, **kwargs):
-        super().__init__(Text,*args, **kwargs)
-        self.setProperty("Role","Model")
+    def __init__(self, Text, *args, **kwargs):
+        super().__init__(Text, *args, **kwargs)
+        self.setProperty("Role", "Model")
         # Also set the property on the inner QFrame created by Ui_Rectangle so QSS selector matches
-        if hasattr(self.loader, 'MessageContent'):
+        if hasattr(self.loader, "MessageContent"):
             parent_frame = self.loader.MessageContent.parent()
             if parent_frame and isinstance(parent_frame, QWidget):
-                    parent_frame.setProperty("Role", "Model")
-                    try:
-                        parent_frame.setMaximumWidth(560)
-                    except Exception:
-                        pass
+                parent_frame.setProperty("Role", "Model")
+                try:
+                    parent_frame.setMaximumWidth(560)
+                except Exception:
+                    pass
