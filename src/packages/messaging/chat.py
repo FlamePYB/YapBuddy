@@ -1,5 +1,5 @@
 from src.packages.messaging.messages import Message
-from PySide6.QtWidgets import QScrollArea, QLayout , QWidget
+from PySide6.QtWidgets import QScrollArea, QLayout, QWidget
 from PySide6.QtCore import Qt, QTimer
 
 
@@ -24,7 +24,7 @@ class Chat:
                 avail = int(self.chat_widget.viewport().width())
             except Exception:
                 avail = None
-            if hasattr(widget, 'prepare_for_display'):
+            if hasattr(widget, "prepare_for_display"):
                 try:
                     widget.prepare_for_display(avail)
                 except Exception:
@@ -36,13 +36,15 @@ class Chat:
         # widget itself (on show/resize); avoid scheduling here to prevent layout thrash.
         try:
             # Align left for AI, right for user so bubble widths and wrapping look correct
-            role = getattr(widget, 'Role', None) or widget.property('Role')
-            if role == 'User':
+            role = getattr(widget, "Role", None) or widget.property("Role")
+            if role == "User":
                 self.Layout.setAlignment(
-                    widget, Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignTop)
+                    widget, Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignTop
+                )
             else:
                 self.Layout.setAlignment(
-                    widget, Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignTop)
+                    widget, Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignTop
+                )
         except Exception:
             pass
         self.messages.append(message.get_dict())

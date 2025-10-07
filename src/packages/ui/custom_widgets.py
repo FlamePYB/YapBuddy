@@ -3,9 +3,8 @@ from src.packages.path_pkg.qt_file import QResource
 import logging as lg
 
 
-class CustomWidget():
-    def __init__(self,loader,target:QWidget,
-                stylesheet_resource:QResource | None):
+class CustomWidget:
+    def __init__(self, loader, target: QWidget, stylesheet_resource: QResource | None):
         loader.setupUi(target)
         try:
             if stylesheet_resource:

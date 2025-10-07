@@ -5,21 +5,21 @@ from src.packages.messaging.messages import Message
 from src.packages.messaging.chat import Chat
 
 
-
 class ChatBot:
     def __init__(self, chat: Chat):
         self.success: bool = True
         self.client = None
         self.client_error_message = None
-        self.instructions = NormalFile(
-            "assets\\instructions.txt", type="RELATIVE")
+        self.instructions = NormalFile("assets\\instructions.txt", type="RELATIVE")
         try:
             self.client = ai_client
         except Exception as e:
             # catch broad exceptions here so we don't silently fail later
             self.success = False
             self.client = None
-            self.client_error_message = f"Try again, an error occurred while creating AI client: {e}"
+            self.client_error_message = (
+                f"Try again, an error occurred while creating AI client: {e}"
+            )
         finally:
             self.chat = chat
             self.chat.set_target(self)
@@ -27,9 +27,8 @@ class ChatBot:
     @property
     def messages(self):
         return [
-            {"role": "system",
-                "content": self.instructions.content},
-            *self.chat.messages
+            {"role": "system", "content": self.instructions.content},
+            *self.chat.messages,
         ]
 
     def respond(self, user_message):
@@ -52,7 +51,7 @@ class ChatBot:
                 model="qwen-3-235b-a22b-instruct-2507",
                 temperature=0.8,
                 max_tokens=100,
-                top_p=1
+                top_p=1,
             )
 
             for chunk in self.current_response:
@@ -62,13 +61,17 @@ class ChatBot:
                     choices = getattr(chunk, "choices", None)
                     if choices is None:
                         # maybe chunk is a dict
-                        choices = chunk.get("choices") if isinstance(
-                            chunk, dict) else None
+                        choices = (
+                            chunk.get("choices") if isinstance(chunk, dict) else None
+                        )
                     if not choices:
                         continue
 
-                    delta = choices[0].get("delta") if isinstance(
-                        choices[0], dict) else getattr(choices[0], "delta", None)
+                    delta = (
+                        choices[0].get("delta")
+                        if isinstance(choices[0], dict)
+                        else getattr(choices[0], "delta", None)
+                    )
                 except Exception:
                     continue
 
@@ -88,6 +91,7 @@ class ChatBot:
         except Exception as e:
             # Any error during streaming should produce an assistant message
             self.current_message = Message(
-                "assistant", f"Error while generating response: {e}")
+                "assistant", f"Error while generating response: {e}"
+            )
 
         self.chat.add_message(self.current_message)

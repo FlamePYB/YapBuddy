@@ -16,8 +16,8 @@ build_options = {
     "excludes": ["tkinter", "unittest"],
     "include_files": include_files,
     "zip_include_packages": ["*"],  # zip all modules, including your src.packages
-    "zip_exclude_packages": [],     # don't leave stdlib loose
-    "optimize": 2,                  # compile to optimized .pyc
+    "zip_exclude_packages": [],  # don't leave stdlib loose
+    "optimize": 2,  # compile to optimized .pyc
 }
 
 base = "Win32GUI" if sys.platform == "win32" else None
@@ -32,7 +32,7 @@ setup(
             "C:/Users/machr/projects/YapBuddy/YapBuddy.py",
             base=base,
             target_name="YapBuddy.exe",
-            icon="C:/Users/machr/projects/YapBuddy/res/files/favicon.ico"
+            icon="C:/Users/machr/projects/YapBuddy/res/files/favicon.ico",
         )
     ],
 )
