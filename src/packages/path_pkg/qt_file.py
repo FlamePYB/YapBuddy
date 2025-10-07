@@ -11,7 +11,7 @@ class QResource(QFile):
 
     @property
     def content(self):
-        if not self._file.open(QFile.ReadOnly | QFile.Text):
+        if not self._file.open(QFile.ReadOnly | QFile.Text): # pyright: ignore[reportAttributeAccessIssue]
             raise IOError(f"Cannot open resource: {self._path}")
         try:
             self._stream = QTextStream(self._file)
