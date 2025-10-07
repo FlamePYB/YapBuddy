@@ -1,5 +1,5 @@
-from src.UI.Message import Ui_Rectangle
-from src.Utils.widgets import MakeCustomWidget
+from src.packages.ui.generated.Message import Ui_Rectangle
+from src.packages.ui.custom_widgets import CustomWidget
 from PySide6.QtGui import QTextOption
 from PySide6.QtWidgets import QFrame, QSizePolicy, QWidget
 
@@ -8,7 +8,7 @@ class AbstractMessage(QFrame):
     def __init__(self,Text,*args, **kwargs):
         super().__init__(*args, **kwargs)
         self.loader = Ui_Rectangle()
-        MakeCustomWidget(self.loader,self,None)
+        CustomWidget(self.loader,self,None)
         # guard flags to avoid recursive resize loops
         self._updating = False
         self._pending_resize = False

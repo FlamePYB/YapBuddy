@@ -1,6 +1,6 @@
 YapBuddy
 └── YapBuddy
-    ├── src
+    ├── src.packages
     │   └── yapbuddy
     │       ├── __init__.py
     │       ├── api

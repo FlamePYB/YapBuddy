@@ -1,15 +1,18 @@
 import os
-from src.Classes.Files.file_handling import NormalFile
-from src.API.res.Headers import ai_client
-from src.Message_Mechanics.messages import Message
-from src.Message_Mechanics.chat import Chat
+from src.packages.path_pkg import NormalFile
+from src.packages.api.sdks.cerebras.res.Headers import ai_client
+from src.packages.messaging.messages import Message
+from src.packages.messaging.chat import Chat
+
+
 
 class ChatBot:
-    def __init__(self,chat:Chat):
+    def __init__(self, chat: Chat):
         self.success: bool = True
         self.client = None
         self.client_error_message = None
-        self.instructions = NormalFile("assets\\instructions.txt",type="RELATIVE")
+        self.instructions = NormalFile(
+            "assets\\instructions.txt", type="RELATIVE")
         try:
             self.client = ai_client
         except Exception as e:
@@ -20,6 +23,7 @@ class ChatBot:
         finally:
             self.chat = chat
             self.chat.set_target(self)
+
     @property
     def messages(self):
         return [
@@ -27,6 +31,7 @@ class ChatBot:
                 "content": self.instructions.content},
             *self.chat.messages
         ]
+
     def respond(self, user_message):
         # If client wasn't initialized, return the captured error message
         if not self.success:
@@ -57,11 +62,13 @@ class ChatBot:
                     choices = getattr(chunk, "choices", None)
                     if choices is None:
                         # maybe chunk is a dict
-                        choices = chunk.get("choices") if isinstance(chunk, dict) else None
+                        choices = chunk.get("choices") if isinstance(
+                            chunk, dict) else None
                     if not choices:
                         continue
 
-                    delta = choices[0].get("delta") if isinstance(choices[0], dict) else getattr(choices[0], "delta", None)
+                    delta = choices[0].get("delta") if isinstance(
+                        choices[0], dict) else getattr(choices[0], "delta", None)
                 except Exception:
                     continue
 
@@ -80,6 +87,7 @@ class ChatBot:
             self.current_message = Message("assistant", full_text)
         except Exception as e:
             # Any error during streaming should produce an assistant message
-            self.current_message = Message("assistant", f"Error while generating response: {e}")
+            self.current_message = Message(
+                "assistant", f"Error while generating response: {e}")
 
         self.chat.add_message(self.current_message)

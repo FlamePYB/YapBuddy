@@ -1,5 +1,5 @@
-from src.Classes.GUI.Messages import UserMessage
-from src.Classes.GUI.Messages import Ai_Message
+from src.packages.ui.message import UserMessage
+from src.packages.ui.message import Ai_Message
 class Message:
     def __init__(self,role,content) -> None:
         self.role = role

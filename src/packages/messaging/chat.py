@@ -1,18 +1,22 @@
-from src.Message_Mechanics.messages import Message
-from PySide6.QtWidgets import QScrollArea,QLayout
+from src.packages.messaging.messages import Message
+from PySide6.QtWidgets import QScrollArea, QLayout , QWidget
 from PySide6.QtCore import Qt, QTimer
 
+
 class Chat:
-    def __init__(self,widget:QScrollArea):
+    def __init__(self, widget: QScrollArea):
         self.chat_widget = widget
         self.MessagesWidgets = self.chat_widget.widget()
-        self.Layout :QLayout = self.MessagesWidgets.layout() # type: ignore
+        self.Layout: QLayout = self.MessagesWidgets.layout()  # type: ignore
         self.messages = []
-    def set_target(self,target):
+
+    def set_target(self, target):
         self.target = target
-    def add_message(self,message:Message):
+
+    def add_message(self, message: Message):
         # create the widget and size it immediately using the scroll area's viewport width
         widget = message.get_widget()
+        self.Layout.addWidget(widget)
         try:
             # get available width from the scroll area viewport if possible
             avail = None
@@ -28,16 +32,17 @@ class Chat:
         except Exception:
             pass
         # now add to layout so it's shown with the computed size
-        self.Layout.addWidget(widget)
         # if the widget exposes an update_content_size helper it can be called by the
         # widget itself (on show/resize); avoid scheduling here to prevent layout thrash.
         try:
             # Align left for AI, right for user so bubble widths and wrapping look correct
             role = getattr(widget, 'Role', None) or widget.property('Role')
             if role == 'User':
-                self.Layout.setAlignment(widget, Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignTop)
+                self.Layout.setAlignment(
+                    widget, Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignTop)
             else:
-                self.Layout.setAlignment(widget, Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignTop)
+                self.Layout.setAlignment(
+                    widget, Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignTop)
         except Exception:
             pass
         self.messages.append(message.get_dict())

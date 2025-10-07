@@ -11,6 +11,7 @@ dependencies = [
     "auto-py-to-exe==2.47.0",
     "bottle==0.13.4",
     "bottle-websocket==0.2.9",
+    "cerebras-cloud-sdk>=1.50.1",
     "certifi==2025.8.3",
     "cffi==2.0.0",
     "charset-normalizer==3.4.3",

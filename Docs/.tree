@@ -54,7 +54,7 @@
 |   |       `-- 4.png
 |   `-- Code
 |       `-- Snippets
-|-- src
+|-- src.packages
 |   |-- API
 |   |   |-- Bot.py
 |   |   `-- res
