@@ -1,10 +1,6 @@
 import sys
-import os
 from cx_Freeze import setup, Executable
 
-# Make sure cx_Freeze can discover your src.packages modules (including res_rc.py)
-src.packages_DIR = "C:/Users/machr/projects/YapBuddy/src.packages"
-sys.path.insert(0, src.packages_DIR)
 
 include_files = [
     ("C:/Users/machr/projects/YapBuddy/assets", "assets"),

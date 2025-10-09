@@ -1,5 +1,4 @@
-from res import res_rc
-import sys
+from res import res_rc  # noqa: F401
 from pathlib import Path
 from typing import Literal
 import logging as lg
@@ -26,7 +25,7 @@ class NormalFile(File):
         self._full_path = (base_path / Path(self._path)).resolve()
         lg.debug(f"Successfully retrieved full path :{str(self._full_path)}")
 
-    @property
+    @cached_property
     def content(self) -> str:
         try:
             self.current_content = self._full_path.read_text(encoding="utf-8")

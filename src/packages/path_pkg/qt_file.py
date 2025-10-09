@@ -9,14 +9,14 @@ class QResource(QFile):
         self._file = QFile(f":{prefix}/{self._path}")
         lg.debug(f"{repr(self._file)} allocated")
 
-    @property
+    @cached_property
     def content(self):
-        if not self._file.open(QFile.ReadOnly | QFile.Text): # pyright: ignore[reportAttributeAccessIssue]
+        if not self._file.open(QFile.ReadOnly | QFile.Text):  # pyright: ignore[reportAttributeAccessIssue]
             raise IOError(f"Cannot open resource: {self._path}")
         try:
             self._stream = QTextStream(self._file)
         except Exception as e:
-            lg.error(f"Unable to get resource text stream because of the error: ")
+            lg.error(f"Unable to get resource text stream because of the error: {e} ")
             self._stream = None
         self._content = self._stream.readAll() if self._stream is not None else ""
         self._file.close()

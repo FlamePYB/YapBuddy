@@ -1,6 +1,6 @@
 from src.packages.messaging.messages import Message
-from PySide6.QtWidgets import QScrollArea, QLayout, QWidget
-from PySide6.QtCore import Qt, QTimer
+from PySide6.QtWidgets import QScrollArea, QLayout
+from PySide6.QtCore import Qt
 
 
 class Chat:

@@ -6,7 +6,7 @@ from src.packages.messaging.chat import Chat
 from src.packages.api.sdks.cerebras.Bot import ChatBot
 from src.packages.messaging.functions import get_sent_message
 from src.packages.path_pkg.qt_file import QResource
-from res import res_rc
+from res import res_rc  # noqa: F401
 import logging as lg
 
 
@@ -29,8 +29,9 @@ def main(argv=[]):
     message_input_widget: QLineEdit = window.findChild(QLineEdit, "MessageInput")  # type:ignore
 
     chat = Chat(MessageArea)  # type:ignore
-    handle_enter = lambda: get_sent_message(message_input_widget, chat)
-    message_input_widget.returnPressed.connect(handle_enter)
-    BOT = ChatBot(chat)
+    message_input_widget.returnPressed.connect(
+        lambda: get_sent_message(message_input_widget, chat)
+    )
+    ChatBot(chat)
 
     return app.exec()

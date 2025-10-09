@@ -1,5 +1,3 @@
-import os
-
 try:
     from cerebras.cloud.sdk import Cerebras
 
