@@ -1,27 +1,35 @@
-from src.packages.ui.generated.Message import Ui_Rectangle
-from src.packages.ui.custom_widgets import CustomWidget
 from PySide6.QtGui import QTextOption
 from PySide6.QtWidgets import QFrame, QSizePolicy, QWidget
 
+from src.packages.ui.custom_widgets import CustomWidget
+from src.packages.ui.generated.Message import Ui_Rectangle
+
 
 class AbstractMessage(QFrame):
-    def __init__(self, Text, *args, **kwargs):
+    """_summary_
+
+    Args:
+        QFrame (_type_): _description_
+    """
+
+    def __init__(self, text, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.loader = Ui_Rectangle()
         CustomWidget(self.loader, self, None)
         # guard flags to avoid recursive resize loops
         self._updating = False
         self._pending_resize = False
-        # MessageContent is a QTextBrowser now; use setPlainText to avoid HTML rendering/truncation
+        # MessageContent is a QTextBrowser now; use setPlainText
+        # to avoid HTML rendering/truncation
         try:
             widget = self.loader.MessageContent
             # set text as plain text to avoid unexpected HTML rendering
-            widget.setPlainText(Text)
+            widget.setPlainText(text)  # pyright: ignore[reportAttributeAccessIssue]
             # ensure internal scrollbars are hidden
             try:
                 # hide the underlying QScrollBar objects if present
-                v = widget.verticalScrollBar()
-                h = widget.horizontalScrollBar()
+                v = widget.verticalScrollBar()  # pyright: ignore[reportAttributeAccessIssue]
+                h = widget.horizontalScrollBar()  # pyright: ignore[reportAttributeAccessIssue]
                 if v is not None:
                     v.hide()
                 if h is not None:
@@ -31,15 +39,15 @@ class AbstractMessage(QFrame):
             # try to size the text document to the widget width so we can compute needed height
             # initial sizing attempt; final sizing happens after the widget is laid out
             try:
-                doc = widget.document()
-                vpw = widget.viewport().width()
+                doc = widget.document()  # pyright: ignore[reportAttributeAccessIssue]
+                vpw = widget.viewport().width()  # pyright: ignore[reportAttributeAccessIssue]
                 if vpw > 0:
                     doc.setTextWidth(vpw)
                 h = int(doc.size().height()) + 8
                 widget.setFixedHeight(max(24, h))
                 # set size policy once to prefer horizontal expansion and fixed vertical height
                 try:
-                    widget.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+                    widget.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)  # pyright: ignore[reportAttributeAccessIssue]
                 except Exception:
                     pass
             except Exception:
@@ -51,7 +59,7 @@ class AbstractMessage(QFrame):
         except Exception:
             # fallback to setText if widget differs
             try:
-                self.loader.MessageContent.setText(Text)
+                self.loader.MessageContent.setText(text)
             except Exception:
                 pass
 
@@ -100,7 +108,7 @@ class AbstractMessage(QFrame):
                 # enable word wrap option on the document
                 try:
                     opt = doc.defaultTextOption()
-                    opt.setWrapMode(QTextOption.WordWrap)
+                    opt.setWrapMode(QTextOption.WordWrap)  # pyright: ignore[reportAttributeAccessIssue]
                     doc.setDefaultTextOption(opt)
                 except Exception:
                     pass
@@ -192,8 +200,8 @@ class AbstractMessage(QFrame):
 
 
 class UserMessage(AbstractMessage):
-    def __init__(self, Text, *args, **kwargs):
-        super().__init__(Text, *args, **kwargs)
+    def __init__(self, text, *args, **kwargs):
+        super().__init__(text, *args, **kwargs)
         self.setProperty("Role", "User")
         # Set property on the inner QFrame so QSS selector matches
         if hasattr(self.loader, "MessageContent"):
@@ -208,9 +216,9 @@ class UserMessage(AbstractMessage):
                     pass
 
 
-class Ai_Message(AbstractMessage):
-    def __init__(self, Text, *args, **kwargs):
-        super().__init__(Text, *args, **kwargs)
+class AiMessage(AbstractMessage):
+    def __init__(self, text, *args, **kwargs):
+        super().__init__(text, *args, **kwargs)
         self.setProperty("Role", "Model")
         # Also set the property on the inner QFrame created by Ui_Rectangle so QSS selector matches
         if hasattr(self.loader, "MessageContent"):

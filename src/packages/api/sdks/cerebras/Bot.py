@@ -1,7 +1,7 @@
-from src.packages.path_pkg import NormalFile
 from src.packages.api.sdks.cerebras.res.Headers import ai_client
-from src.packages.messaging.messages import Message
 from src.packages.messaging.chat import Chat
+from src.packages.messaging.messages import Message
+from src.packages.path_pkg import NormalFile
 
 
 class ChatBot:

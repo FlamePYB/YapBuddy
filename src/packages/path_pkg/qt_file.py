@@ -1,18 +1,19 @@
-from PySide6.QtCore import QFile, QTextStream
 import logging as lg
 from functools import cached_property
+
+from PySide6.QtCore import QFile, QTextStream
 
 
 class QResource(QFile):
     def __init__(self, prefix: str, path: str):
         self._path = path
         self._file = QFile(f":{prefix}/{self._path}")
-        lg.debug(f"{repr(self._file)} allocated")
+        lg.debug(f"{self._file!r} allocated")
 
     @cached_property
     def content(self):
         if not self._file.open(QFile.ReadOnly | QFile.Text):  # pyright: ignore[reportAttributeAccessIssue]
-            raise IOError(f"Cannot open resource: {self._path}")
+            raise OSError(f"Cannot open resource: {self._path}")
         try:
             self._stream = QTextStream(self._file)
         except Exception as e:

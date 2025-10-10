@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 ################################################################################
 ## Form generated from reading UI file 'Message.ui'
 ##
@@ -9,8 +7,8 @@
 ################################################################################
 
 from PySide6.QtCore import (
-    QMetaObject,
     QMargins,
+    QMetaObject,
     QSize,
     Qt,
 )
@@ -24,7 +22,7 @@ from PySide6.QtWidgets import (
 )
 
 
-class Ui_Rectangle(object):
+class Ui_Rectangle:
     def setupUi(self, Rectangle):
         if not Rectangle.objectName():
             Rectangle.setObjectName("Rectangle")

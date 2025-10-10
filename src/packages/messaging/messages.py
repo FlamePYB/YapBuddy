@@ -1,19 +1,16 @@
-from src.packages.ui.message import UserMessage
-from src.packages.ui.message import Ai_Message
+from src.packages.ui.message import AiMessage, UserMessage
+from dataclasses import dataclass
+from typing import Literal
 
-
+@dataclass
 class Message:
-    def __init__(self, role, content) -> None:
-        self.role = role
-        self.content = content
-        match self.role:
-            case "assistant":
-                self.widget = Ai_Message
-            case "user":
-                self.widget = UserMessage
+    role : Literal["user","assistant"]
+    content : str
+
 
     def get_widget(self):
-        return self.widget(self.content)
-
-    def get_dict(self):
-        return {"role": self.role, "content": self.content}
+        match self.role:  
+            case "assistant":
+                return AiMessage(self.content)
+            case "user":
+                return UserMessage(self.content)

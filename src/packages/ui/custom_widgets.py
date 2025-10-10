@@ -1,6 +1,8 @@
-from PySide6.QtWidgets import QWidget
-from src.packages.path_pkg.qt_file import QResource
 import logging as lg
+
+from PySide6.QtWidgets import QWidget
+
+from src.packages.path_pkg.qt_file import QResource
 
 
 class CustomWidget:

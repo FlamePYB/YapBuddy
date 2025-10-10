@@ -1,6 +1,11 @@
-from src.packages.messaging.messages import Message
-from PySide6.QtWidgets import QScrollArea, QLayout
+from PySide6.QtWidgets import QLayout, QScrollArea
 from PySide6.QtCore import Qt
+from dataclasses import asdict
+
+import logging
+from src.packages.messaging.messages import Message
+
+logger = logging.getLogger(__name__)
 
 
 class Chat:
@@ -14,7 +19,8 @@ class Chat:
         self.target = target
 
     def add_message(self, message: Message):
-        # create the widget and size it immediately using the scroll area's viewport width
+        # create the widget and size it immediately using the scroll area's
+        # viewport width
         widget = message.get_widget()
         self.Layout.addWidget(widget)
         try:
@@ -28,14 +34,15 @@ class Chat:
                 try:
                     widget.prepare_for_display(avail)
                 except Exception:
-                    pass
+                    logger.debug("")
         except Exception:
             pass
         # now add to layout so it's shown with the computed size
         # if the widget exposes an update_content_size helper it can be called by the
-        # widget itself (on show/resize); avoid scheduling here to prevent layout thrash.
+        # widget itself (on show/resize); avoid scheduling here to prevent layout thrash
         try:
-            # Align left for AI, right for user so bubble widths and wrapping look correct
+            # Align left for AI, right for user so bubble widths and wrapping
+            # look correct
             role = getattr(widget, "Role", None) or widget.property("Role")
             if role == "User":
                 self.Layout.setAlignment(
@@ -45,8 +52,8 @@ class Chat:
                 self.Layout.setAlignment(
                     widget, Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignTop
                 )
-        except Exception:
-            pass
-        self.messages.append(message.get_dict())
-        if message.get_dict()["role"] == "user":
+        except Exception as e:
+            logger.debug(e)
+        self.messages.append(asdict(message))
+        if asdict(message)["role"] == "user":
             self.target.respond(message)

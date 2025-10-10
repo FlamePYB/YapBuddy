@@ -1,8 +1,11 @@
-from res import res_rc  # noqa: F401
+import logging
+from functools import cached_property
 from pathlib import Path
 from typing import Literal
-import logging as lg
-from functools import cached_property
+
+from res import res_rc  # noqa: F401
+
+lg = logging.getLogger(__name__)
 
 
 class File:
@@ -23,7 +26,7 @@ class NormalFile(File):
         base_path = Path(self._base).resolve()
         lg.debug("Base path resolved successfully")
         self._full_path = (base_path / Path(self._path)).resolve()
-        lg.debug(f"Successfully retrieved full path :{str(self._full_path)}")
+        lg.debug(f"Successfully retrieved full path :{self._full_path!s}")
 
     @cached_property
     def content(self) -> str:
