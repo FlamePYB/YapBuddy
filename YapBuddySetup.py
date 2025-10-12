@@ -8,7 +8,6 @@ include_files = [
 ]
 
 build_options = {
-    "src.packages": [],  # add hidden imports if needed
     "excludes": ["tkinter", "unittest"],
     "include_files": include_files,
     "zip_include_packages": ["*"],  # zip all modules, including your src.packages
