@@ -30,11 +30,11 @@ class ChatBot:
             *self.chat.messages,
         ]
 
-    def respond(self, user_message):
+    def respond(self):
         # If client wasn't initialized, return the captured error message
         if not self.success:
             err_text = self.client_error_message or "AI client unavailable."
-            self.current_message = Message("assistant", err_text)
+            self.current_message = Message(role="assistant", content=err_text)
             self.chat.add_message(self.current_message)
             return
 
@@ -86,7 +86,7 @@ class ChatBot:
             if not full_text:
                 full_text = "No response received from model."
 
-            self.current_message = Message("assistant", full_text)
+            self.current_message = Message(role="assistant", content=full_text)
         except Exception as e:
             # Any error during streaming should produce an assistant message
             self.current_message = Message(

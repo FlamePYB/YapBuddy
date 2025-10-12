@@ -10,6 +10,8 @@ from src.packages.path_pkg.qt_file import QResource
 from src.packages.ui.custom_widgets import CustomWidget
 from src.packages.ui.generated.MainWindow import Ui_MainWindow
 
+lg = logging.getLogger(__name__)
+
 
 def main(argv=[]):
     """Start the Qt application. Called from the repo root.
@@ -22,7 +24,7 @@ def main(argv=[]):
     _argv = argv if argv is not None else exec_args
 
     app = QApplication(_argv)
-    logging.debug("Qt app initialized")
+    lg.debug("Qt app initialized")
     window = QMainWindow()
     window_stylesheet = QResource("/style", "files/MainWindow.qss")
     CustomWidget(Ui_MainWindow(), window, window_stylesheet)

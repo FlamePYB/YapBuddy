@@ -1,8 +1,8 @@
-from PySide6.QtWidgets import QLayout, QScrollArea
-from PySide6.QtCore import Qt
-from dataclasses import asdict
-
 import logging
+
+from PySide6.QtCore import Qt, QTimer
+from PySide6.QtWidgets import QApplication, QLayout, QScrollArea
+
 from src.packages.messaging.messages import Message
 
 logger = logging.getLogger(__name__)
@@ -19,41 +19,33 @@ class Chat:
         self.target = target
 
     def add_message(self, message: Message):
-        # create the widget and size it immediately using the scroll area's
-        # viewport width
+        """Add a message to the chat GUI."""
         widget = message.get_widget()
-        self.Layout.addWidget(widget)
         try:
-            # get available width from the scroll area viewport if possible
-            avail = None
-            try:
-                avail = int(self.chat_widget.viewport().width())
-            except Exception:
-                avail = None
-            if hasattr(widget, "prepare_for_display"):
-                try:
-                    widget.prepare_for_display(avail)
-                except Exception:
-                    logger.debug("")
+            avail = int(self.chat_widget.viewport().width())
         except Exception:
-            pass
-        # now add to layout so it's shown with the computed size
-        # if the widget exposes an update_content_size helper it can be called by the
-        # widget itself (on show/resize); avoid scheduling here to prevent layout thrash
-        try:
-            # Align left for AI, right for user so bubble widths and wrapping
-            # look correct
-            role = getattr(widget, "Role", None) or widget.property("Role")
-            if role == "User":
-                self.Layout.setAlignment(
-                    widget, Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignTop
-                )
-            else:
-                self.Layout.setAlignment(
-                    widget, Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignTop
-                )
-        except Exception as e:
-            logger.debug(e)
-        self.messages.append(asdict(message))
-        if asdict(message)["role"] == "user":
-            self.target.respond(message)
+            avail = 480
+        if hasattr(widget, "prepare_for_display"):
+            widget.prepare_for_display(avail)
+        self.Layout.addWidget(widget)
+        # Align left for AI, right for user
+        role = getattr(widget, "Role", None) or widget.property("Role")
+        if role == "User":
+            self.Layout.setAlignment(
+                widget, Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignTop
+            )
+        else:
+            self.Layout.setAlignment(
+                widget, Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignTop
+            )
+
+        # Store message in history
+        self.messages.append(message.model_dump())
+
+        # Force GUI update before triggering bot response
+        if message.role == "user":
+            QApplication.processEvents()
+            # Then trigger bot response with a slight delay
+            QTimer.singleShot(100, self.target.respond)
+
+    # ...alignment logic as before

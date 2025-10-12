@@ -1,16 +1,16 @@
-from src.packages.ui.message import AiMessage, UserMessage
-from dataclasses import dataclass
 from typing import Literal
 
-@dataclass
-class Message:
-    role : Literal["user","assistant"]
-    content : str
+from pydantic import BaseModel
+
+from src.packages.ui.message import AiMessage, UserMessage
+
+message_widgets = {"user": UserMessage, "assistant": AiMessage}
 
 
-    def get_widget(self):
-        match self.role:  
-            case "assistant":
-                return AiMessage(self.content)
-            case "user":
-                return UserMessage(self.content)
+class Message(BaseModel):
+    role: Literal["user", "assistant"]
+    content: str
+
+    def get_widget(self) -> UserMessage | AiMessage:
+        global message_widgets
+        return message_widgets[self.role](self.content)

@@ -67,7 +67,6 @@ lint.select = [
     "N",
     "F",
     "I",
-    "D",
     "B",
     "SIM",
     "RET",

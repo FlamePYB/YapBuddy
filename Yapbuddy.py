@@ -1,8 +1,10 @@
-from src.main import main
+import logging
 import sys
-import logging as lg
 
-lg.basicConfig(level="DEBUG", format="[%(levelname)s] %(message)s")
+from src.main import main
+
+logging.basicConfig(level="DEBUG", format="[%(levelname)s] %(message)s")
+lg = logging.getLogger(__name__)
 
 
 def run():

@@ -1,6 +1,6 @@
 import sys
-from cx_Freeze import setup, Executable
 
+from cx_Freeze import Executable, setup
 
 include_files = [
     ("C:/Users/machr/projects/YapBuddy/assets", "assets"),
