@@ -47,10 +47,10 @@ class ChatBot:
             self.current_response = self.client.chat.completions.create(
                 messages=self.messages,
                 stream=True,
-                model="qwen-3-235b-a22b-instruct-2507",
+                model="llama-3.3-70b",
                 temperature=0.8,
-                max_tokens=100,
-                top_p=1,
+                max_tokens=300,
+                top_p=1
             )
 
             for chunk in self.current_response:
@@ -90,7 +90,7 @@ class ChatBot:
         except Exception as e:
             # Any error during streaming should produce an assistant message
             self.current_message = Message(
-                "assistant", f"Error while generating response: {e}"
+                role="assistant", content=f"Error while generating response: {e}"
             )
 
         self.chat.add_message(self.current_message)
