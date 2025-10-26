@@ -1,0 +1,167 @@
+Metadata-Version: 2.4
+Name: yapbuddy
+Version: 0.1.0
+Summary: Add your description here
+Requires-Python: >=3.13
+Description-Content-Type: text/markdown
+License-File: License.txt
+Requires-Dist: altgraph==0.17.4
+Requires-Dist: annotated-types==0.7.0
+Requires-Dist: anyio==4.10.0
+Requires-Dist: auto-py-to-exe==2.47.0
+Requires-Dist: bottle==0.13.4
+Requires-Dist: bottle-websocket==0.2.9
+Requires-Dist: cerebras-cloud-sdk>=1.50.1
+Requires-Dist: certifi==2025.8.3
+Requires-Dist: cffi==2.0.0
+Requires-Dist: charset-normalizer==3.4.3
+Requires-Dist: colorama==0.4.6
+Requires-Dist: cx-freeze>=8.4.1
+Requires-Dist: distro==1.9.0
+Requires-Dist: eel==0.18.2
+Requires-Dist: future==1.0.0
+Requires-Dist: gevent==25.8.2
+Requires-Dist: gevent-websocket==0.10.1
+Requires-Dist: greenlet==3.2.4
+Requires-Dist: h11==0.16.0
+Requires-Dist: httpcore==1.0.9
+Requires-Dist: httpx==0.28.1
+Requires-Dist: idna==3.10
+Requires-Dist: importlib-resources==6.5.2
+Requires-Dist: jiter==0.10.0
+Requires-Dist: logging>=0.4.9.6
+Requires-Dist: openai==1.99.9
+Requires-Dist: packaging==25.0
+Requires-Dist: pefile==2023.2.7
+Requires-Dist: pycache-wipe>=1.0.0
+Requires-Dist: pycparser==2.23
+Requires-Dist: pydantic==2.11.7
+Requires-Dist: pydantic-core==2.33.2
+Requires-Dist: pyinstaller==6.15.0
+Requires-Dist: pyinstaller-hooks-contrib==2025.8
+Requires-Dist: pylint>=3.3.9
+Requires-Dist: pyparsing==3.2.3
+Requires-Dist: pyside6==6.9.1
+Requires-Dist: pyside6-addons==6.9.1
+Requires-Dist: pyside6-essentials==6.9.1
+Requires-Dist: pytest>=8.4.2
+Requires-Dist: pywin32-ctypes==0.2.3
+Requires-Dist: requests==2.32.5
+Requires-Dist: ruff>=0.14.0
+Requires-Dist: setuptools==80.9.0
+Requires-Dist: shiboken6==6.9.1
+Requires-Dist: sniffio==1.3.1
+Requires-Dist: tqdm==4.67.1
+Requires-Dist: typing-extensions==4.14.1
+Requires-Dist: typing-inspection==0.4.1
+Requires-Dist: urllib3==2.5.0
+Requires-Dist: zope-event==5.1.1
+Requires-Dist: zope-interface==7.2
+Dynamic: license-file
+
+# YapBuddy – Simple Chatbot
+
+## Banner
+
+![YapBuddy banner](HBanner.png)
+
+YapBuddy is a basic gui chatbot project for Windows. This early version is built for learning and experimenting with chatbot logic in Python.
+
+---
+
+## Features
+
+- **Session memory**: Remembers messages only during your current session.
+- **No persistent history**: All chat history is wiped when you close the app.
+- **Message sender markers**: Distinguishes between user and bot messages.
+- **Basic responses**: Handles simple interactions.
+
+## Download options
+
+There are 3 current options to download YapBuddy:
+
+- **Installer :** You download one .exe file and and use it to install the app in the programs or a custom directory. Usually best for casual use
+- **Portable :** You download one zipped folder in the .zip format made with all its extensions and supply , and you can unzip it at any given time and use right from there. Best for storing the app long term on a flash drive or just quick use.
+- **Ultra-Portable :** A more compressed version than the portable using a .rar extension that provides a better compression protocol. Best for storing on low end external storage devices.
+
+---
+
+## How to Use
+
+1. Download a build from the releases tab.
+2. Double-click the `.exe` file.
+3. Type your message and press Enter.
+
+## Limitations
+
+- Only remembers conversation context during your session.
+- No chat history is saved between sessions.
+- Replies are basic; complex interactions may not be handled.
+- No animation yet.
+- Slow first time start up.
+- Occasional IO delay.
+
+---
+
+## Future Plans
+
+- Add persistent memory for conversations.
+- Improve response quality.
+- Enable the bot to perform simple actions.
+
+---
+
+## Feedback & Contributing
+
+Feedback is welcome! If you have ideas or want to contribute, please open an issue or pull request.
+
+---
+
+## Download
+
+---
+
+| Version | Tag       | Date       | Download |
+|---------|-----------|------------|----------|
+|Release v1.1.1|`v1.1.1`|2025-4-10|[setup](https://github.com/FlamePYB/YapBuddy/releases/download/v1.1.1-release/YapBuddy_setup.exe) · [portable](https://github.com/FlamePYB/YapBuddy/releases/download/v1.1.1-release/YapBuddy_portable.zip) · [ultra-portable](https://github.com/FlamePYB/YapBuddy/releases/download/v1.1.1-release/YapBuddy_ultra-portable.rar)|
+| Beta v1.0.0  | `v1.0.0`  | 2025-09-10 | [standealone](https://github.com/FlamePYB/YapBuddy/releases/download/v1.0.0-beta/YapBuddy-v1.0.0-beta.exe) |
+| Alpha v0.1.2  | `v0.3.2`  | 2025-08-15 | [standealone](https://github.com/FlamePYB/YapBuddy/releases/download/v0.3.2-alpha/yapper-v-0-3-2-beta.exe) |
+| Alpha v0.1.2  | `v0.1.2`  | 2025-08-01 | [standealone](https://github.com/FlamePYB/YapBuddy/releases/download/v0.1.2-alpha/yapper-v0-1-2-alpha.exe) |
+| **Source Code** | `main` | latest release | [ZIP](https://github.com/FlamePYB/YapBuddy/archive/refs/heads/main.zip) · [TAR.GZ](https://github.com/FlamePYB/YapBuddy/archive/refs/heads/main.tar.gz) |
+
+## Setup
+
+### Install
+
+After having installed the app from assets.
+You will have a file similar to this
+![screenshot 0](screenshots/App/Install/0.png "YapBuddy setup file")
+
+You will want to double click it or open it in a similar way , and then give it admin access. After opening you would see a dialog start up like this
+![screenshot 1](screenshots/App/Install/1.png "YapBuddy setup wizard first page") 
+and then you will just follow through with the steps
+![screenshot 2](screenshots/App/Install/2.png "YapBuddy setup wizard second page")
+![screenshot 3](screenshots/App/Install/3.png "YapBuddy setup wizard third page")
+![screenshot 4](screenshots/App/Install/4.png "YapBuddy setup wizard fourth page")
+![screenshot 5](screenshots/App/Install/5.png "YapBuddy setup wizard fifth page")
+![screenshot 6](screenshots/App/Install/6.png "YapBuddy setup wizard sixth page")
+![screenshot 7](screenshots/App/Install/7.png "YapBuddy setup wizard seventh page")
+![screenshot 7](screenshots/App/Install/8.png "YapBuddy setup wizard eigth page")
+
+### Use
+
+And now it's time for the use which is the simplest.
+Just open it:
+
+![app icon](screenshots/App/Use/0.png "YapBuddy use guide")
+
+And then start typing
+
+![window appears](screenshots/App/Use/1.png)
+![user typing](screenshots/App/Use/2.png)
+
+And enter when done
+
+![message submit](screenshots/App/Use/3.png)
+
+![deeper convo](screenshots/App/Use/4.png)

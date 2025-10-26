@@ -2,11 +2,11 @@ import logging as lg
 
 from PySide6.QtWidgets import QWidget
 
-from src.packages.path_pkg.qt_file import QResource
+from path_pkg import QResource, NormalFile
 
 
 class CustomWidget:
-    def __init__(self, loader, target: QWidget, stylesheet_resource: QResource | None):
+    def __init__(self, loader, target: QWidget, stylesheet_resource: QResource | NormalFile | None):
         loader.setupUi(target)
         try:
             if stylesheet_resource:

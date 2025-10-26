@@ -2,7 +2,8 @@ from typing import Literal
 
 from pydantic import BaseModel
 
-from src.packages.ui.message import AiMessage, UserMessage
+from ui.message import AiMessage, UserMessage
+
 
 message_widgets = {"user": UserMessage, "assistant": AiMessage}
 

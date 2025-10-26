@@ -1,7 +1,7 @@
 from PySide6.QtWidgets import QLineEdit
 
-from src.packages.messaging.chat import Chat
-from src.packages.messaging.messages import Message
+from messaging.chat import Chat
+from messaging.messages import Message
 
 
 def get_sent_message(input_field: QLineEdit, chat: Chat):

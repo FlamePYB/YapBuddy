@@ -3,7 +3,8 @@ import logging
 from PySide6.QtCore import Qt, QTimer
 from PySide6.QtWidgets import QApplication, QLayout, QScrollArea
 
-from src.packages.messaging.messages import Message
+from messaging.messages import Message
+
 
 logger = logging.getLogger(__name__)
 
@@ -47,5 +48,3 @@ class Chat:
             QApplication.processEvents()
             # Then trigger bot response with a slight delay
             QTimer.singleShot(100, self.target.respond)
-
-    # ...alignment logic as before

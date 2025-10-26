@@ -3,16 +3,24 @@ from sys import argv as exec_args
 
 from PySide6.QtWidgets import QApplication, QLineEdit, QMainWindow, QWidget
 
-from src.packages.api.sdks.cerebras.Bot import ChatBot
-from src.packages.messaging.chat import Chat
-from src.packages.messaging.functions import get_sent_message
-from src.packages.path_pkg.qt_file import QResource
-from src.packages.ui.custom_widgets import CustomWidget
-from src.packages.ui.generated.MainWindow import Ui_MainWindow
+from path_pkg import QResource
+from api.sdks.cerebras.Bot import ChatBot
+from messaging.chat import Chat
+from messaging.functions import get_sent_message
+from ui.custom_widgets import CustomWidget
+from ui.generated.MainWindow import Ui_MainWindow
+from res import res_rc
+
+
 
 lg = logging.getLogger(__name__)
 
-
+try:
+    lg.debug("importing resource file of name:")
+    lg.debug(res_rc.qt_resource_name)
+except Exception as e:
+    lg.debug("failed to retrieve resource file")
+    lg.debug(e)
 def main(argv=[]):
     """Start the Qt application. Called from the repo root.
 

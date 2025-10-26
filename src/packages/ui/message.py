@@ -3,8 +3,9 @@ from logging import getLogger
 from PySide6.QtGui import QTextOption
 from PySide6.QtWidgets import QFrame, QLabel, QSizePolicy, QWidget
 
-from src.packages.ui.custom_widgets import CustomWidget
-from src.packages.ui.generated.Message import Ui_Rectangle
+from ui.custom_widgets import CustomWidget
+from ui.generated.Message import Ui_Rectangle
+
 
 logger = getLogger(__name__)
 

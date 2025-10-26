@@ -44,6 +44,7 @@ dependencies = [
     "pyside6==6.9.1",
     "pyside6-addons==6.9.1",
     "pyside6-essentials==6.9.1",
+    "pytest>=8.4.2",
     "pywin32-ctypes==0.2.3",
     "requests==2.32.5",
     "ruff>=0.14.0",
@@ -56,6 +57,14 @@ dependencies = [
     "urllib3==2.5.0",
     "zope-event==5.1.1",
     "zope-interface==7.2",
+]
+[tool.setuptools]
+package-dir = {"" = "src/packages"}
+packages = [
+    "ui",
+    "path_pkg",
+    "messaging",
+    "api"
 ]
 [tool.ruff]
 lint.select = [
