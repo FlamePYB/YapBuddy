@@ -34,7 +34,7 @@ jobs:
           }
       - name: Build with cx_Freeze
         run: |
-          cx_Freeze yapbuddy.py --include-files assets
+          python -m cx_Freeze yapbuddy.py --include-files assets
 
       # After the cx_Freeze build step
       - name: Normalize cx_Freeze output dir
