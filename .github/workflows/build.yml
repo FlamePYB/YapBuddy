@@ -36,7 +36,7 @@ jobs:
       - name: Build wheels
         run: uv build
       - name: Install wheels
-        run: uv pip install dist/*.whl
+        run: uv pip install dist/yapbuddy-0.1.0-py3-none-any.whl
 
       - name: Build with cx_Freeze
         run: |
