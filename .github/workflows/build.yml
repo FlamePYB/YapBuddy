@@ -32,9 +32,10 @@ jobs:
 
       - name: Package build
         run: |
-          set BUILD_DIR=build\exe.win-amd64-3.11
+          set BUILD_DIR=build\exe.win-amd64-3.13
           powershell Compress-Archive -Path %BUILD_DIR%\* -DestinationPath build\yapbuddy-portable.zip
           tar -czf build/yapbuddy-portable.tar.gz -C %BUILD_DIR% .
+          
 
       - name: Upload portable archives
         uses: actions/upload-artifact@v4
