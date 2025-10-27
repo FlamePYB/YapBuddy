@@ -32,6 +32,12 @@ jobs:
             uv sync
             uv tool install cx_Freeze
           }
+      - name: Build wheels
+        run: |
+          uv build
+      - name: Install wheels
+        run: uv pip install dist/*.whl
+
       - name: Build with cx_Freeze
         run: |
           uv run python -m cx_Freeze yapbuddy.py --include-files assets
