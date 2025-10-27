@@ -28,7 +28,7 @@ jobs:
           }
       - name: Build with cx_Freeze
         run: |
-          python YapBuddySetup.py build
+          python -m cxfreeze yapbuddy.py --include-files assets
 
       - name: Package build
         run: |
