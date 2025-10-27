@@ -29,13 +29,12 @@ jobs:
           python -m pip install cx_Freeze
           if (Test-Path 'requirements.txt') {
             python -m pip install -r 'requirements.txt'
+          }
           uv venv
           uv sync
           uv tool install cx_Freeze
-          }
       - name: Build wheels
-        run: |
-          uv build
+        run: uv build
       - name: Install wheels
         run: uv pip install dist/*.whl
 
