@@ -29,8 +29,9 @@ jobs:
           python -m pip install cx_Freeze
           if (Test-Path 'requirements.txt') {
             python -m pip install -r 'requirements.txt'
-            uv sync
-            uv tool install cx_Freeze
+          uv venv
+          uv sync
+          uv tool install cx_Freeze
           }
       - name: Build wheels
         run: |
