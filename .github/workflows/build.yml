@@ -30,17 +30,24 @@ jobs:
         run: |
           python -m cx_Freeze yapbuddy.py --include-files assets
 
-      - name: Package build
+      # After the cx_Freeze build step
+      - name: Normalize cx_Freeze output dir
+        shell: pwsh
         run: |
-          set BUILD_DIR=build\exe.win-amd64-3.13
-          powershell Compress-Archive -Path %BUILD_DIR%\* -DestinationPath build\yapbuddy-portable.zip
-          tar -czf build/yapbuddy-portable.tar.gz -C %BUILD_DIR% .
-          
-
-      - name: Upload portable archives
+          # find the produced folder under build (e.g. build\exe.win-amd64-3.13)
+          $out = Get-ChildItem -Path build -Directory -Filter 'exe.win-*' | Select -ExpandProperty FullName -First 1
+          if (-not $out) {
+            Write-Error "cx_Freeze output not found under build/ — build may have failed."
+            exit 1
+          }
+          # ensure a consistent, known folder name for upload
+          $target = Join-Path (Split-Path $out -Parent) 'onedir'
+          Remove-Item -Recurse -Force $target -ErrorAction SilentlyContinue
+          Move-Item -Path $out -Destination $target
+          Write-Host "Normalized output to: $target"
+      
+      - name: Upload onedir artifact
         uses: actions/upload-artifact@v4
         with:
-          name: yapbuddy-portable
-          path: |
-            build/yapbuddy-portable.zip
-            build/yapbuddy-portable.tar.gz
+          name: yapbuddy-onedir
+          path: build/onedir
