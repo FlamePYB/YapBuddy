@@ -6,8 +6,8 @@ src/packages/yapbuddy.egg-info/SOURCES.txt
 src/packages/yapbuddy.egg-info/dependency_links.txt
 src/packages/yapbuddy.egg-info/requires.txt
 src/packages/yapbuddy.egg-info/top_level.txt
+src/packages/api/__init__.py
 src/packages/api/sdks/cerebras/Bot.py
-src/packages/api/sdks/cerebras/res/Headers.py
 src/packages/messaging/chat.py
 src/packages/messaging/functions.py
 src/packages/messaging/messages.py
