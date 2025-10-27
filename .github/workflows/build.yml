@@ -28,7 +28,7 @@ jobs:
           }
       - name: Build with cx_Freeze
         run: |
-          python setup.py build
+          python YapBuddySetup.py build
 
       - name: Package build
         run: |
